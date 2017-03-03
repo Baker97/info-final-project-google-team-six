@@ -12,7 +12,9 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(),
-    mainPanel()
+    mainPanel(
+      plotOutput("plot", click = 'plot_click')
+    )
     
     
   )
