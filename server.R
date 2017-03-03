@@ -2,6 +2,7 @@ library(ggplot2)
 library(shiny)
 library(dplyr)
 library(tidyr)
+
 baby_names <- read.csv("data/baby-names.csv")
 presidents <- read.csv("data/presidents.csv")
 shinyServer(function(input, output, session) {
@@ -21,4 +22,14 @@ shinyServer(function(input, output, session) {
     
     return(p)
   })
+  
+  output$click_info <- renderPrint({
+    cat("input$plot_click:\n")
+    str(input$plot_click)
+  })
+  
+  output$table <- renderDataTable({
+    return(filtered())
+  })
+  
 })
