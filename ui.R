@@ -9,7 +9,8 @@ baby_names <- read.csv("data/baby-names.csv")
 presidents <- read.csv("data/presidents.csv")
 
 shinyUI(fluidPage(
-  titlePanel(""),
+  titlePanel("Baby names observation data"),
+  br(),
   
   sidebarLayout(
     sidebarPanel(
@@ -18,10 +19,17 @@ shinyUI(fluidPage(
       
     ),
     mainPanel(
-      plotOutput("plot", click = 'plot_click')
+      tabsetPanel(type = "tabs",
+        tabPanel(strong("Plot"), plotOutput("plot", click = 'plot_click'), 
+                 fluidRow(column(width = 5, verbatimTextOutput("click_info")))),
+        
+        tabPanel(strong("Table"), br(), p("This is a table of all the data point listed under the president's name"),
+                 dataTableOutput("table")) 
+      )
+        
     )
     
-    
+    )
   )
   
-))
+)
