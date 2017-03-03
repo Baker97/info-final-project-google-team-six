@@ -6,3 +6,15 @@ library(tidyr)
 
 # Read in the baby names data set
 baby.names <- read.csv("data/baby-names.csv")
+
+shinyUI(fluidPage(
+  titlePanel(""),
+  
+  sidebarLayout(
+    sidebarPanel(),
+    mainPanel()
+    
+    
+  )
+  
+))
