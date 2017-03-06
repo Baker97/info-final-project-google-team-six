@@ -9,6 +9,11 @@ baby_names <- read.csv("data/baby-names.csv")
 presidents <- read.csv("data/presidents.csv")
 grammys <- read.csv("data/grammy.csv")
 
+displays <- c("Presidents", "Musicans")
+actual.file.names <- c("presidents", "grammy_data")
+
+data.selection <- data.frame(displays, actual.file.names)
+
 # UI
 shinyUI(fluidPage(
   titlePanel("Baby names observation data"),
