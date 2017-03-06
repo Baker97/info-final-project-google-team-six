@@ -8,11 +8,7 @@ library(tidyr)
 baby_names <- read.csv("data/baby-names.csv")
 presidents <- read.csv("data/presidents.csv")
 grammys <- read.csv("data/grammy.csv")
-
-displays <- c("Presidents", "Musicans")
-actual.file.names <- c("presidents", "grammy_data")
-
-data.selection <- data.frame(displays, actual.file.names)
+authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM")
 
 # UI
 shinyUI(fluidPage(
@@ -25,7 +21,7 @@ shinyUI(fluidPage(
                   choices = c("Presidents", "Authors", "Singers")),
       checkboxInput(inputId = "showpres",
                     label = strong("Include President"),
-                    value = FALSE),
+                    value = TRUE),
       checkboxInput(inputId = "showauth",
                     label = strong("Include Author"),
                     value = FALSE),
@@ -36,9 +32,9 @@ shinyUI(fluidPage(
       selectInput("presselection", "Choose a president:",
                   choices = presidents$first),
       selectInput("singerselection", "Choose a singer:",
-                  choices = grammys$first_name),
+                  choices = grammys$first),
       selectInput("authorselection", "Choose a Author:",
-                  choices = grammys$first_name)
+                  choices = authors$first)
       
     ),
     mainPanel(
