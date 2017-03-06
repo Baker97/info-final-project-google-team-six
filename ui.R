@@ -16,8 +16,24 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("selection", "Choose a president:",
-                  choices = presidents$first)
+      selectInput("profession", "Choose a profession:",
+                  choices = c("Presidents", "Authors", "Singers")),
+      checkboxInput(inputId = "showpres",
+                    label = strong("Include President"),
+                    value = FALSE),
+      checkboxInput(inputId = "showauth",
+                    label = strong("Include Author"),
+                    value = FALSE),
+      checkboxInput(inputId = "showsing",
+                    label = strong("Include Singer"),
+                    value = FALSE),
+      
+      selectInput("presselection", "Choose a president:",
+                  choices = presidents$first),
+      selectInput("singerselection", "Choose a singer:",
+                  choices = grammys$first_name),
+      selectInput("authorselection", "Choose a Author:",
+                  choices = grammys$first_name)
       
     ),
     mainPanel(
