@@ -13,14 +13,14 @@ grammys <- read.csv("data/grammy.csv")
 shinyServer(function(input, output, session) {
   
   filtered <- reactive({
-    data <- baby_names %>% filter(name == input$selection) 
+    data <- baby_names %>% filter(name == input$selection, sex == "boy") 
     
     return(data)
   })
   
   output$plot <- renderPlot({
     p <- ggplot((data = filtered()), mapping = aes(x = year, y = percent)) +
-      geom_point() +
+      geom_line() +
       geom_vline(xintercept = filter(presidents, first == input$selection)$year[1])
       
     
