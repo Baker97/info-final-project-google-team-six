@@ -18,25 +18,23 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("profession", "Choose a profession:",
-                  choices = c("Presidents", "Authors", "Singers")),
+      h3(strong("Please click one box")),
+      ("graphs will only display one data set at a time"),
       checkboxInput(inputId = "showpres",
                     label = strong("Include President"),
                     value = TRUE),
+      selectInput("presselection", "Choose a president:",
+                  choices = presidents$first),
       checkboxInput(inputId = "showauth",
                     label = strong("Include Author"),
                     value = FALSE),
+      selectInput("authorselection", "Choose a Author:",
+                  choices = authors$first),
       checkboxInput(inputId = "showsing",
                     label = strong("Include Singer"),
                     value = FALSE),
-      
-      selectInput("presselection", "Choose a president:",
-                  choices = presidents$first),
       selectInput("singerselection", "Choose a singer:",
-                  choices = grammys$first),
-      selectInput("authorselection", "Choose a Author:",
-                  choices = authors$first)
-      
+                  choices = grammys$first)
     ),
     mainPanel(
       tabsetPanel(type = "tabs",
@@ -45,7 +43,10 @@ shinyUI(fluidPage(
                  column(width = 5,verbatimTextOutput("brush_info")))),
         
         tabPanel(strong("Table"), br(), p("This is a table of all the data points listed under the president's name"),
-                 dataTableOutput("table")) 
+                 dataTableOutput("table"), wellPanel(helpText(a("Baby names source data", href="http://www.worldbank.org/")), 
+                  helpText(a("Grammy data source", href = "http://www.worldbank.org/")), 
+                  helpText(a("President source data", href="http://www.worldbank.org/"))                              
+                 )) 
         )
       )
     )
