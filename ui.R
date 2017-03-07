@@ -19,7 +19,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       h3(strong("Please click one box")),
-      ("graphs will only display one data set at a time"),
+      p("graphs will only display one data set at a time"),
       checkboxInput(inputId = "showpres",
                     label = strong("Include President"),
                     value = TRUE),
@@ -42,11 +42,13 @@ shinyUI(fluidPage(
                  id = "plot_brush", resetOnNew = TRUE)), fluidRow(column(width = 5, verbatimTextOutput("click_info")),
                  column(width = 5,verbatimTextOutput("brush_info")))),
         
-        tabPanel(strong("Table"), br(), p("This is a table of all the data points listed under the president's name"),
+        tabPanel(strong("Table"), br(), p("This is a table of all the data points listed under the user's selected name and profession"),
                  dataTableOutput("table"), wellPanel(helpText(a("Baby names source data", href="http://www.worldbank.org/")), 
                   helpText(a("Grammy data source", href = "http://www.worldbank.org/")), 
-                  helpText(a("President source data", href="http://www.worldbank.org/"))                              
-                 )) 
+                  helpText(a("President source data", href="http://www.worldbank.org/")))), 
+        
+        tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
+                                      displayed on the table table tab)"), verbatimTextOutput("summary"))
         )
       )
     )

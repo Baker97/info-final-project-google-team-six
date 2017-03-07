@@ -29,8 +29,11 @@ shinyServer(function(input, output, session) {
     }else if(input$showauth){
       data <- baby_names %>% filter(first == input$authorselection) 
       values$year <- filter(authors, first == input$authorselection)$year
+    } else {
+    validate(
+      need(input$data != "", "Please select a data set")
+    )
     }
-    
     return(data)
   })
   
@@ -69,5 +72,8 @@ shinyServer(function(input, output, session) {
     return(filtered())
   })
   
-  
+  #returns a summary of the filtered data
+  output$summary <- renderPrint({
+    summary(data.frame(filtered()))
+  })
 })
