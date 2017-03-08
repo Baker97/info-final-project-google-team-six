@@ -6,10 +6,10 @@ library(tidyr)
 library(shinythemes)
 
 # Load in the datasets
-baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
-grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
+baby_names2 <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents2 <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+grammys2 <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
+authors2 <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
 colnames(authors) <- c("year", "first","full", "gender", "name")
 
 # Server
@@ -27,8 +27,9 @@ shinyServer(function(input, output, session) {
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
-    president_data <- baby_names %>% filter(first == input$president_selection, gender == "boy")
-    values$year <- filter(presidents, first == input$president_selection)$year
+    fullname <- (presidents2[presidents2$full == input$president_selection,]$first)
+    president_data <- baby_names %>% filter(first == fullname, gender == "boy")
+    values$year <- filter(presidents2, first == input$president_selection)$year
     return(president_data)
   })
   

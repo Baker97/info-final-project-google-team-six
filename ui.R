@@ -35,7 +35,7 @@ shinyUI(fluidPage(
                sidebarPanel(
                  # Allows the user to chose a president by first name, stores data in "president_selection"
                  # TODO: choose a full name. Should be good because we have no presidents with repeated names?
-                 selectInput("president_selection", "Choose a President:", choices = presidents$first)
+                 selectInput("president_selection", "Choose a President:", choices = presidents$full)
                ),
                
                # President's data
@@ -95,7 +95,7 @@ shinyUI(fluidPage(
                sidebarPanel(
                  # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
                  # TODO: fix choosing, do we have repeated full names?
-                 selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$first)
+                 selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$full)
                ),
                
                # Mucisian's data
@@ -156,7 +156,7 @@ shinyUI(fluidPage(
                sidebarPanel(
                  # Allows the user to chose a author by first name, stores data in "author_selection"
                  # TODO: fix choosing
-                 selectInput("author_selection", "Choose a Author:", choices = authors$first)
+                 selectInput("author_selection", "Choose a Author:", choices = authors$full)
                ),
                
                # Authors's data
