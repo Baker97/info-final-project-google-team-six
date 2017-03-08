@@ -5,7 +5,6 @@ library(dplyr)
 library(tidyr)
 library(shinythemes)
 
-<<<<<<< HEAD
 # Load in the datasets
 baby_names <-
   read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
@@ -290,14 +289,3 @@ shinyUI(fluidPage(
        )
     )
   )
-=======
-# Read in the baby names data set
-baby.names <- read.csv("data/baby-names.csv")
-baby.names.1880 <- baby.names %>%
-  select(year = 1880)
-
-
-# Presidents
-# Time Person
-# Award winner
->>>>>>> df06c963812f03fef7aede2fa5b608b0420f7da3
