@@ -192,5 +192,14 @@ shinyServer(function(input, output, session) {
     
   })
   
+  # Singer Influence Table outputted to "singer_influence"
+  output$singer_influence <- renderDataTable({
+    
+  })
+  
+  # Author Influence Table outputted to "author_influence"
+  output$author_influence <- renderDataTable({
+    
+  })
   
 })
