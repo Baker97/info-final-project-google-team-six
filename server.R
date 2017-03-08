@@ -1,17 +1,3 @@
-# Load the appropriate libraries
-library(ggplot2)
-library(shiny)
-library(dplyr)
-library(tidyr)
-
-# Load in the datasets
-baby_names <- read.csv("data/baby-names.csv")
-presidents <- read.csv("data/presidents.csv")
-grammys <- read.csv("data/grammy.csv")
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM")
-colnames(authors) <- c("year", "first","full", "gender", "name")
-
-
 # Server
 shinyServer(function(input, output, session) {
 
