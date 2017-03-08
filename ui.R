@@ -51,11 +51,11 @@ shinyUI(fluidPage(
                      "president_plot",
                      click = 'presplot_click',
                      dblclick = "presplot_dblclick",
-                     brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE),
+                     brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE)),
                      fluidRow(column(width = 5, verbatimTextOutput("presclick_info")),
                      column(width = 5,verbatimTextOutput("presbrush_info")))
-                   )
-                 ),
+                   ),
+                 
                  
                  # Outputs "president_table"
                  tabPanel(
@@ -110,9 +110,11 @@ shinyUI(fluidPage(
                      "singer_plot",
                      click = 'singerplot_click',
                      dblclick = "singerplot_dblclick",
-                     brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
-                   )
-                 ),
+                     brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)),
+                    fluidRow(column(width = 5, verbatimTextOutput("singerclick_info")),
+                            column(width = 5,verbatimTextOutput("singerbrush_info")))
+                   ),
+                 
                  
                  # Outputs "mucisian_table"
                  # TODO: Source data
@@ -146,7 +148,7 @@ shinyUI(fluidPage(
     ),
     
     # Authors' data
-    tabPanel("Authors:",
+    tabPanel("Authors",
              sidebarLayout(
                # Authors' user controls
                sidebarPanel(
@@ -168,8 +170,10 @@ shinyUI(fluidPage(
                      "author_plot",
                      click = 'authplot_click',
                      dblclick = "authplot_dblclick",
-                     brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)
-                   )
+                     brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)),
+                   fluidRow(column(width = 5, verbatimTextOutput("authclick_info")),
+                            column(width = 5,verbatimTextOutput("authbrush_info")))
+                   
                  ),
                  
                  # Outputs "author_table"

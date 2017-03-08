@@ -22,6 +22,8 @@ shinyServer(function(input, output, session) {
   
   # sets the range for plots?
   ranges <- reactiveValues(x = NULL, y = NULL)
+  ranges2 <- reactiveValues(x = NULL, y = NULL)
+  ranges3 <- reactiveValues(x = NULL, y = NULL)
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
@@ -58,7 +60,7 @@ shinyServer(function(input, output, session) {
     q <- ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
-      coord_cartesian(xlim = ranges$x, ylim = ranges$y)
+      coord_cartesian(xlim = ranges2$x, ylim = ranges2$y)
     return(q)
   })
   
@@ -67,7 +69,7 @@ shinyServer(function(input, output, session) {
     w <- ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
-      coord_cartesian(xlim = ranges$x, ylim = ranges$y)
+      coord_cartesian(xlim = ranges3$x, ylim = ranges3$y)
     return(w)
   })
   
@@ -75,10 +77,10 @@ shinyServer(function(input, output, session) {
   
   # observes event "plot_dblclick", and zooms in on range
   observeEvent(input$presplot_dblclick, {
-    brush <- input$presplot_brush
-    if (!is.null(brush)) {
-      ranges$x <- c(brush$xmin, brush$xmax)
-      ranges$y <- c(brush$ymin, brush$ymax)
+    presbrush <- input$presplot_brush
+    if (!is.null(presbrush)) {
+      ranges$x <- c(presbrush$xmin, presbrush$xmax)
+      ranges$y <- c(presbrush$ymin, presbrush$ymax)
       
     } else {
       ranges$x <- NULL
@@ -86,25 +88,25 @@ shinyServer(function(input, output, session) {
     }
   })
   observeEvent(input$singerplot_dblclick, {
-    brush <- input$singerplot_brush
-    if (!is.null(brush)) {
-      ranges$x <- c(brush$xmin, brush$xmax)
-      ranges$y <- c(brush$ymin, brush$ymax)
+    singerbrush <- input$singerplot_brush
+    if (!is.null(singerbrush)) {
+      ranges2$x <- c(singerbrush$xmin, singerbrush$xmax)
+      ranges2$y <- c(singerbrush$ymin, singerbrush$ymax)
       
     } else {
-      ranges$x <- NULL
-      ranges$y <- NULL
+      ranges2$x <- NULL
+      ranges2$y <- NULL
     }
   })
   observeEvent(input$authplot_dblclick, {
-    brush <- input$authplot_brush
-    if (!is.null(brush)) {
-      ranges$x <- c(brush$xmin, brush$xmax)
-      ranges$y <- c(brush$ymin, brush$ymax)
+    authbrush <- input$authplot_brush
+    if (!is.null(authbrush)) {
+      ranges3$x <- c(authbrush$xmin, authbrush$xmax)
+      ranges3$y <- c(authbrush$ymin, authbrush$ymax)
       
     } else {
-      ranges$x <- NULL
-      ranges$y <- NULL
+      ranges3$x <- NULL
+      ranges3$y <- NULL
     }
   })
   
@@ -120,24 +122,24 @@ shinyServer(function(input, output, session) {
     str(input$presplot_click)
   })
   output$singerbrush_info <- renderPrint({
-    cat("input$plot_brush:\n")
-    str(input$plot_brush)
+    cat("input$singerplot_brush:\n")
+    str(input$singerplot_brush)
   })
   
   # prints information about plot click
   output$singerclick_info <- renderPrint({
-    cat("input$plot_click:\n")
+    cat("input$singerplot_click:\n")
     str(input$plot_click)
   })
   output$authbrush_info <- renderPrint({
-    cat("input$plot_brush:\n")
-    str(input$plot_brush)
+    cat("input$authplot_brush:\n")
+    str(input$authplot_brush)
   })
   
   # prints information about plot click
   output$authclick_info <- renderPrint({
-    cat("input$plot_click:\n")
-    str(input$plot_click)
+    cat("input$authplot_click:\n")
+    str(input$authplot_click)
   })
   
   
