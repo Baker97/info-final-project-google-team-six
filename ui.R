@@ -81,10 +81,10 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
                              # TODO: might have to specify specific click/brush variable names? Not sure how this works
                              tabPanel(strong("Plot"), plotOutput("mucisian_plot", click = 'plot_click', 
                                                                  dblclick = "plot_dblclick", brush = brushOpts(
-                                                                 id = "plot_brush", resetOnNew = TRUE)), 
-                                                                 fluidRow(column
-                                                                 (width = 5, verbatimTextOutput("click_info")),
-                                                                  column(width = 5,verbatimTextOutput("brush_info")))
+                                                                   id = "plot_brush", resetOnNew = TRUE)), 
+                                      fluidRow(column
+                                               (width = 5, verbatimTextOutput("click_info")),
+                                               column(width = 5,verbatimTextOutput("brush_info")))
                              ),
                              
                              # Outputs "mucisian_table"
@@ -92,16 +92,16 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
                              tabPanel(strong("Table"), br(), p("This is a table of all the data 
                                                                points listed under the user's selected name and profession"),
                                       dataTableOutput("mucisian_table"), wellPanel(helpText(a("Mucisian source data", 
-                                                                                               href="http://www.worldbank.org/")))
+                                                                                              href="http://www.worldbank.org/")))
                              ), 
                              
                              # Outputs "mucisian_summary"
                              tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
                                                                  displayed on the table table tab)"), verbatimTextOutput("mucisian_summary"))
-                   )
-                 )
-               )
-    ),
+                             )
+    )
+                                      )
+               ),
     
     # Authors' data
     tabPanel("Authors:", 
@@ -124,28 +124,28 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
                              # TODO: might have to specify specific click/brush variable names? Not sure how this works
                              tabPanel(strong("Plot"), plotOutput("author_plot", click = 'plot_click', 
                                                                  dblclick = "plot_dblclick", brush = brushOpts(
-                                                                 id = "plot_brush", resetOnNew = TRUE)), 
-                                                                 fluidRow(column
-                                                                 (width = 5, verbatimTextOutput("click_info")),
-                                                                  column(width = 5,verbatimTextOutput("brush_info")))
+                                                                   id = "plot_brush", resetOnNew = TRUE)), 
+                                      fluidRow(column
+                                               (width = 5, verbatimTextOutput("click_info")),
+                                               column(width = 5,verbatimTextOutput("brush_info")))
                              ),
                              
                              # Outputs "author_table"
                              # TODO: Fix source data
                              tabPanel(strong("Table"), br(), p("This is a table of all the data 
-                                      points listed under the user's selected name and profession"),
+                                                               points listed under the user's selected name and profession"),
                                       
                                       dataTableOutput("author_table"), wellPanel(helpText(a("Author source data", 
-                                      href="http://www.worldbank.org/")))
+                                                                                            href="http://www.worldbank.org/")))
                              ), 
                              
                              # Outputs "author_summary"
                              tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
-                                       displayed on the table table tab)"), verbatimTextOutput("author_summary"))
-            )
-          )
-        )
-      ),
+                                                                 displayed on the table table tab)"), verbatimTextOutput("author_summary"))
+                             )
+                 )
+    )
+                             ),
     
     # Data summary
       tabPanel("Summary"
