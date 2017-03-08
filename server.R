@@ -25,14 +25,14 @@ shinyServer(function(input, output, session) {
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
-    data1 <- baby_names %>% filter(first == input$president_selection, gender == "boy")
+    president_data <- baby_names %>% filter(first == input$president_selection, gender == "boy")
     values$year <- filter(presidents, first == input$president_selection)$year
     return(president_data)
   })
   
   # Stores in "singer_filtered" filtered data based upon "singer_selection"
   singer_filtered <- reactive({
-    data2 <- baby_names %>% filter(first == input$singer_selection)
+    singer_data <- baby_names %>% filter(first == input$singer_selection)
     values$year <- filter(grammys, first == input$singer_selection)$year
     return(singer_data)
   })
@@ -46,7 +46,7 @@ shinyServer(function(input, output, session) {
   
   # Outputs to "president_plot" plot data for presidents
   output$president_plot <- renderPlot({
-    p <- ggplot((data = president_filtereed()), mapping = aes(x = year, y = percent)) +
+    p <- ggplot((data = president_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y)
