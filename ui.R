@@ -5,10 +5,10 @@ library(dplyr)
 library(tidyr)
 
 # Load in the datasets
-baby_names <- read.csv("data/baby-names.csv")
-presidents <- read.csv("data/presidents.csv")
-grammys <- read.csv("data/grammy.csv")
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM")
+baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
+authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
 colnames(authors) <- c("year", "first","full", "gender", "name")
 
 # UI
@@ -24,17 +24,17 @@ shinyUI(fluidPage(
                     label = strong("Include President"),
                     value = TRUE),
       selectInput("presselection", "Choose a president:",
-                  choices = presidents$first),
+                  choices = presidents$full),
       checkboxInput(inputId = "showauth",
                     label = strong("Include Author"),
                     value = FALSE),
       selectInput("authorselection", "Choose a Author:",
-                  choices = authors$first),
+                  choices = authors$full),
       checkboxInput(inputId = "showsing",
                     label = strong("Include Singer"),
                     value = FALSE),
       selectInput("singerselection", "Choose a singer:",
-                  choices = grammys$first)
+                  choices = grammys$full)
     ),
     mainPanel(
       tabsetPanel(type = "tabs",

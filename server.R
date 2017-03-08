@@ -5,10 +5,10 @@ library(dplyr)
 library(tidyr)
 
 # Load in the datasets
-baby_names <- read.csv("data/baby-names.csv")
-presidents <- read.csv("data/presidents.csv")
-grammys <- read.csv("data/grammy.csv")
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM")
+baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+grammys <- read.csv("data/grammy.csv",stringsAsFactors = FALSE)
+authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
 colnames(authors) <- c("year", "first","full", "gender", "name")
 
 
@@ -22,7 +22,7 @@ shinyServer(function(input, output, session) {
     
     if(input$showpres){
       data <- baby_names %>% filter(first == input$presselection, gender == "boy")
-      values$year <- filter(presidents, first == input$presselection)$year
+      values$year <- filter(presidents, first == (filter(presidents, full == "Barack Obama")$first))$year
     }else if(input$showsing){
       data <- baby_names %>% filter(first == input$singerselection)
       values$year <- filter(grammys, first == input$singerselection)$year
