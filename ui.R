@@ -26,8 +26,7 @@ shinyUI(fluidPage(
   
   # Nav bar, with nav bar title
   navbarPage(
-    "NavBar",
-    
+    "",
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
@@ -274,7 +273,7 @@ shinyUI(fluidPage(
              mainPanel(
                p(
                  "We are a team of UW (Go Dawgs!) students trying to examine the
-                 influence of famous people on people naming their children
+                 influence famous people have on people naming their children
                  after them. The data set that we are working with contains
                  popular baby names from 1880 - 2008 and the names of famous people.
                  It contains each name, sex, the percentage of people who were named
