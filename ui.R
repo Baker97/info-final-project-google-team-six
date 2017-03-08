@@ -219,7 +219,17 @@ shinyUI(fluidPage(
            fluidRow(
              column(4,
                     h4("Presidents"),
-                    p("Presidents data.")
+                    p("Presidents data."),
+                    br(),
+                    p("Lyndon Johnson, Dwight D. Eisenhower, Franklin Roosevelt, Herbert Hoover, 
+                      Calvin Coolidge, Warren Harding, Woodrow Wilson, and Theodore Roosevelt were
+                      the only presidents that showed statistically significant gain, either on the
+                      year of inauguration, or shortly there after. Most presidents (10/18) in our data
+                      did not show any drastic change in name popularity around the time of their 
+                      election. We are not sure why there are spikes in name popularity for the names
+                      of certain presidents and not others, but we are pretty sure it doesn't have
+                      to do with their party affiliation, as 3 of the spikes were Democrat, and 5 of the spikes
+                      were Republican.")
              ),
              column(4,
                     h4("Singers"),
