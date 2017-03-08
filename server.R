@@ -19,7 +19,7 @@ shinyServer(function(input, output, session) {
   values <- reactiveValues()
   # Sets the default year to "2000"
   values$year <- 2000
-
+  
   # sets the range for plots?
   ranges <- reactiveValues(x = NULL, y = NULL)
   
@@ -32,15 +32,15 @@ shinyServer(function(input, output, session) {
   
   # Stores in "singer_filtered" filtered data based upon "singer_selection"
   singer_filtered <- reactive({
-      data2 <- baby_names %>% filter(first == input$singer_selection)
-      values$year <- filter(grammys, first == input$singer_selection)$year
-      return(singer_data)
+    data2 <- baby_names %>% filter(first == input$singer_selection)
+    values$year <- filter(grammys, first == input$singer_selection)$year
+    return(singer_data)
   })
   
   # Stores in "author_filtered" filtered data based upon "author_selection"
   author_filtered <- reactive({
-      author_data <- baby_names %>% filter(first == input$author_selection) 
-      values$year <- filter(authors, first == input$author_selection)$year
+    author_data <- baby_names %>% filter(first == input$author_selection) 
+    values$year <- filter(authors, first == input$author_selection)$year
     return(author_data)
   })
   
@@ -109,4 +109,3 @@ shinyServer(function(input, output, session) {
     summary(data.frame(president_filtered()))
   })
 })
-
