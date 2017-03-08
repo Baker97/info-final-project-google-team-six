@@ -31,28 +31,34 @@ shinyServer(function(input, output, session) {
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
+    pres_first_name <- filter(presidents, full == input$president_selection)$first
+    pres_gender <- filter(presidents, full == input$president_selection)$gender
     president_data <-
-      baby_names %>% filter(first == input$president_selection, gender == "boy")
+      baby_names %>% filter(first == pres_first_name, gender == pres_gender)
     values$year <-
-      filter(presidents, first == input$president_selection)$year
+      filter(presidents, first == pres_first_name)$year
     return(president_data)
   })
   
   # Stores in "singer_filtered" filtered data based upon "singer_selection"
   singer_filtered <- reactive({
+    sing_first_name <- filter(grammys, full == input$singer_selection)$first
+    sing_gender <- filter(grammys, full == input$singer_selection)$gender
     singer_data <-
-      baby_names %>% filter(first == input$singer_selection)
+      baby_names %>% filter(first == sing_first_name, gender == sing_gender)
     values$year <-
-      filter(grammys, first == input$singer_selection)$year
+      filter(grammys, first == sing_first_name)$year
     return(singer_data)
   })
   
   # Stores in "author_filtered" filtered data based upon "author_selection"
   author_filtered <- reactive({
+    auth_first_name <- filter(authors, full == input$author_selection)$first
+    auth_gender <- filter(authors, full == input$author_selection)$gender
     author_data <-
-      baby_names %>% filter(first == input$author_selection)
+      baby_names %>% filter(first == auth_first_name, gender == auth_gender)
     values$year <-
-      filter(authors, first == input$author_selection)$year
+      filter(authors, first == auth_first_name)$year
     return(author_data)
   })
   
