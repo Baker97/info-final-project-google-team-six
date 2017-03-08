@@ -147,9 +147,21 @@ shinyServer(function(input, output, session) {
   output$president_table <- renderDataTable({
     return(president_filtered())
   })
+  output$singer_table <- renderDataTable({
+    return(singer_filtered())
+  })
+  output$author_table <- renderDataTable({
+    return(author_filtered())
+  })
   
   # Returns a summary of the filtered president data
   output$president_summary <- renderPrint({
     summary(data.frame(president_filtered()))
+  })
+  output$singer_summary <- renderPrint({
+    summary(data.frame(singer_filtered()))
+  })
+  output$author_summary <- renderPrint({
+    summary(data.frame(author_filtered()))
   })
 })

@@ -79,8 +79,9 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "Shows a summary of the data selected (same as the data points
-                     displayed on the table table tab)"
-              )
+                     displayed on the table table tab)"),
+                   verbatimTextOutput("president_summary")
+              
             )
           )
         )
@@ -139,8 +140,9 @@ shinyUI(fluidPage(
                    strong("Summary"),
                    br(),
                    p("Shows a summary of the data selected (same as the data points
-                     displayed on the table table tab)"
-              )
+                     displayed on the table table tab)"),
+                   verbatimTextOutput("singer_summary")
+              
             )
           )
         )
@@ -201,8 +203,9 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "Shows a summary of the data selected (same as the data points
-                     displayed on the table table tab)"
-               )
+                     displayed on the table table tab)"),
+                   verbatimTextOutput("author_summary")
+               
              )
            )
          )
