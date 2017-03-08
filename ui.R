@@ -49,9 +49,11 @@ shinyUI(fluidPage(
                    strong("Plot"),
                    plotOutput(
                      "president_plot",
-                     click = 'plot_click',
-                     dblclick = "plot_dblclick",
-                     brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
+                     click = 'presplot_click',
+                     dblclick = "presplot_dblclick",
+                     brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE),
+                     fluidRow(column(width = 5, verbatimTextOutput("presclick_info")),
+                     column(width = 5,verbatimTextOutput("presbrush_info")))
                    )
                  ),
                  
@@ -66,10 +68,10 @@ shinyUI(fluidPage(
                    dataTableOutput("president_table"),
                    wellPanel(helpText(
                      a("President source data",
-                       href =
-                         "http://www.worldbank.org/")
-                   ))
-                   ),
+                       href ="http://www.worldbank.org/")
+                     )
+                   )
+                 ),
                  
                  # Outputs "president_summary"
                  tabPanel(
@@ -78,10 +80,12 @@ shinyUI(fluidPage(
                    p(
                      "Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 )
-                   )
-               ))
-    )),
+              )
+            )
+          )
+        )
+      )
+    ),
     
     # Musicians' page
     tabPanel("Singers",
@@ -104,9 +108,9 @@ shinyUI(fluidPage(
                    strong("Plot"),
                    plotOutput(
                      "singer_plot",
-                     click = 'plot_click',
-                     dblclick = "plot_dblclick",
-                     brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
+                     click = 'singerplot_click',
+                     dblclick = "singerplot_dblclick",
+                     brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
                    )
                  ),
                  
@@ -124,20 +128,22 @@ shinyUI(fluidPage(
                      a("Mucisian source data",
                        href =
                          "http://www.worldbank.org/")
-                   ))
-                   ),
+                      )
+                    )
+                  ),
                  
                  # Outputs "mucisian_summary"
                  tabPanel(
                    strong("Summary"),
                    br(),
-                   p(
-                     "Shows a summary of the data selected (same as the data points
+                   p("Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 )
-                   )
-               ))
-    )),
+              )
+            )
+          )
+        )
+      )
+    ),
     
     # Authors' data
     tabPanel("Authors:",
@@ -160,9 +166,9 @@ shinyUI(fluidPage(
                    strong("Plot"),
                    plotOutput(
                      "author_plot",
-                     click = 'plot_click',
-                     dblclick = "plot_dblclick",
-                     brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
+                     click = 'authplot_click',
+                     dblclick = "authplot_dblclick",
+                     brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)
                    )
                  ),
                  
@@ -181,8 +187,9 @@ shinyUI(fluidPage(
                      a("Author source data",
                        href =
                          "http://www.worldbank.org/")
-                   ))
-                   ),
+                    )
+                   )
+                 ),
                  
                  # Outputs "author_summary"
                  tabPanel(
@@ -191,10 +198,12 @@ shinyUI(fluidPage(
                    p(
                      "Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 )
-                   )
-               ))
-               )),
+               )
+             )
+           )
+         )
+       )
+     ),
     
     # Data summary
     tabPanel("Summary"),
@@ -226,10 +235,10 @@ shinyUI(fluidPage(
                    that particular name in that year, and the year. The famous people
                    data sets will have the year and the famous person of that category
                    for that year(either an author, musician, or president)."
-                 )
-                 )
-               
-               
-                 ))
+               )
              )
-    ))
+           )
+         )
+       )
+    )
+  )

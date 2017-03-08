@@ -74,8 +74,30 @@ shinyServer(function(input, output, session) {
   # Not sure if we need separate clicks/brushes for each plot
   
   # observes event "plot_dblclick", and zooms in on range
-  observeEvent(input$plot_dblclick, {
-    brush <- input$plot_brush
+  observeEvent(input$presplot_dblclick, {
+    brush <- input$presplot_brush
+    if (!is.null(brush)) {
+      ranges$x <- c(brush$xmin, brush$xmax)
+      ranges$y <- c(brush$ymin, brush$ymax)
+      
+    } else {
+      ranges$x <- NULL
+      ranges$y <- NULL
+    }
+  })
+  observeEvent(input$singerplot_dblclick, {
+    brush <- input$singerplot_brush
+    if (!is.null(brush)) {
+      ranges$x <- c(brush$xmin, brush$xmax)
+      ranges$y <- c(brush$ymin, brush$ymax)
+      
+    } else {
+      ranges$x <- NULL
+      ranges$y <- NULL
+    }
+  })
+  observeEvent(input$authplot_dblclick, {
+    brush <- input$authplot_brush
     if (!is.null(brush)) {
       ranges$x <- c(brush$xmin, brush$xmax)
       ranges$y <- c(brush$ymin, brush$ymax)
@@ -87,13 +109,33 @@ shinyServer(function(input, output, session) {
   })
   
   # prints information about brushed area
-  output$brush_info <- renderPrint({
+  output$presbrush_info <- renderPrint({
+    cat("input$presplot_brush:\n")
+    str(input$presplot_brush)
+  })
+  
+  # prints information about plot click
+  output$presclick_info <- renderPrint({
+    cat("input$presplot_click:\n")
+    str(input$presplot_click)
+  })
+  output$singerbrush_info <- renderPrint({
     cat("input$plot_brush:\n")
     str(input$plot_brush)
   })
   
   # prints information about plot click
-  output$click_info <- renderPrint({
+  output$singerclick_info <- renderPrint({
+    cat("input$plot_click:\n")
+    str(input$plot_click)
+  })
+  output$authbrush_info <- renderPrint({
+    cat("input$plot_brush:\n")
+    str(input$plot_brush)
+  })
+  
+  # prints information about plot click
+  output$authclick_info <- renderPrint({
     cat("input$plot_click:\n")
     str(input$plot_click)
   })
