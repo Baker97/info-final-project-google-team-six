@@ -198,7 +198,39 @@ shinyUI(fluidPage(
                )),
     
     # Data summary
-    tabPanel("Summary"),
+    tabPanel("Summary",
+             
+             fluidRow(
+               column(4,
+                      h4("Presidents"),
+                      p("Presidents data.")
+                      ),
+               column(4,
+                      h4("Mucisians"),
+                      p("Mucisians data.")
+                      ),
+               column(4,
+                      h4("Authors"),
+                      p("Authors data.")
+               )
+               ),
+             fluidRow(
+               column(4,
+                      hr(),
+                      verbatimTextOutput('out1'),
+                      selectInput('in1', 'Options', c(Choose='', state.name), selectize=FALSE)
+               ),
+               column(4,
+                      hr(),
+                      verbatimTextOutput('out2'),
+                      selectInput('in2', 'Options', state.name, selectize=FALSE)
+               ),
+               column(4,
+                      hr(),
+                      verbatimTextOutput('out3'),
+                      selectInput('in3', 'Options', state.name, multiple=TRUE, selectize=FALSE)
+               )
+             )),
     
     tabPanel("About", br(),
              sidebarLayout(

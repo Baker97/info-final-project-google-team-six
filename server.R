@@ -25,15 +25,9 @@ shinyServer(function(input, output, session) {
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
-<<<<<<< HEAD
-      president_data <- baby_names %>% filter(first == input$president_selection, gender == "boy")
-      values$year <- filter(presidents, first == input$president_selection)$year
-      return(president_data)
-=======
     president_data <- baby_names %>% filter(first == input$president_selection, gender == "boy")
     values$year <- filter(presidents, first == input$president_selection)$year
     return(president_data)
->>>>>>> master
   })
   
   # Stores in "singer_filtered" filtered data based upon "singer_selection"
