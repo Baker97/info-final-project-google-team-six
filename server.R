@@ -164,4 +164,14 @@ shinyServer(function(input, output, session) {
   output$author_summary <- renderPrint({
     summary(data.frame(author_filtered()))
   })
+  
+  
+  # Create summary data for report, to show impact
+  
+  # President Influence Table outputted to "president_influence"
+  output$president_influence <- renderDataTable({
+    
+  })
+  
+  
 })

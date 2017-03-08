@@ -91,20 +91,20 @@ shinyUI(fluidPage(
     # Musicians' page
     tabPanel("Singers",
              sidebarLayout(
-               # Mucisians' user controls
+               # Singers' user controls
                sidebarPanel(
-                 # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
+                 # Allows the user to chose a singer by first name, stores data in "singer_selection"
                  # TODO: fix choosing, do we have repeated full names?
-                 selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$first)
+                 selectInput("singer_selection", "Choose a Singer:", choices = grammys$first)
                ),
                
-               # Mucisian's data
-               # TODO: Have to make labels specific to mucisian
+               # Singer's data
+               # TODO: Have to make labels specific to singer
 
                mainPanel(tabsetPanel(
                  type = "tabs",
                  
-                 # Outputs "mucisian_plot"
+                 # Outputs "singer_plot"
                  # TODO: might have to specify specific click/brush variable names? Not sure how this works
                  tabPanel(
                    strong("Plot"),
@@ -118,7 +118,7 @@ shinyUI(fluidPage(
                    ),
                  
                  
-                 # Outputs "mucisian_table"
+                 # Outputs "singer_table"
                  # TODO: Source data
                  tabPanel(
                    strong("Table"),
@@ -129,14 +129,14 @@ shinyUI(fluidPage(
                    ),
                    dataTableOutput("singer_table"),
                    wellPanel(helpText(
-                     a("Mucisian source data",
+                     a("Singer source data",
                        href =
                          "http://www.worldbank.org/")
                       )
                     )
                   ),
                  
-                 # Outputs "mucisian_summary"
+                 # Outputs "singer_summary"
                  tabPanel(
                    strong("Summary"),
                    br(),
@@ -216,38 +216,45 @@ shinyUI(fluidPage(
     # Data summary
     tabPanel("Summary",
              
+             # Introduces each table
              fluidRow(
                column(4,
                       h4("Presidents"),
                       p("Presidents data.")
                       ),
                column(4,
-                      h4("Mucisians"),
-                      p("Mucisians data.")
+                      h4("Singers"),
+                      p("Singers data.")
                       ),
                column(4,
                       h4("Authors"),
                       p("Authors data.")
                )
                ),
+             
+             # Displays each table, in separate columns
              fluidRow(
                column(4,
                       hr(),
-                      verbatimTextOutput('out1'),
-                      selectInput('in1', 'Options', c(Choose='', state.name), selectize=FALSE)
+                      
+                      # Outputs "president_influence"
+                      dataTableOutput("president_influence")
                ),
                column(4,
                       hr(),
-                      verbatimTextOutput('out2'),
-                      selectInput('in2', 'Options', state.name, selectize=FALSE)
+                      
+                      # Outputs "singer_influence"
+                      dataTableOutput("singer_influence")
                ),
                column(4,
                       hr(),
-                      verbatimTextOutput('out3'),
-                      selectInput('in3', 'Options', state.name, multiple=TRUE, selectize=FALSE)
+                      
+                      # Outputs "author_influence"
+                      dataTableOutput("author_influence")
                )
              )),
     
+    # Page about our team
     tabPanel("About", br(),
              sidebarLayout(
                # Authors' user controls
@@ -264,7 +271,7 @@ shinyUI(fluidPage(
                ),
                
                
-               # Authors' data
+               # Data about our team
                mainPanel(
                  p(
                    "We are a team of UW (Go Dawgs!) students trying to examine the
