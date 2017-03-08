@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-=======
-# Load the appropriate libraries
-library(ggplot2)
-library(shiny)
-library(dplyr)
-library(tidyr)
-library(shinythemes)
-# Load in the datasets
-baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
-grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
-colnames(authors) <- c("year", "first","full", "gender", "name")
-
-
->>>>>>> master
 # Server
 shinyServer(function(input, output, session) {
 
@@ -23,25 +6,25 @@ shinyServer(function(input, output, session) {
 
   ranges <- reactiveValues(x = NULL, y = NULL)
   
-  filtered1 <- reactive({
-      data1 <- baby_names %>% filter(first == input$presselection, gender == "boy")
-      values$year <- filter(presidents, first == input$presselection)$year
+  president_filtered <- reactive({
+      data1 <- baby_names %>% filter(first == input$president_selection, gender == "boy")
+      values$year <- filter(presidents, first == input$president_selection)$year
       return(data1)
   })
-  filtered2 <- reactive({
-      data2 <- baby_names %>% filter(first == input$singerselection)
-      values$year <- filter(grammys, first == input$singerselection)$year
+  singer_filtered <- reactive({
+      data2 <- baby_names %>% filter(first == input$singer_selection)
+      values$year <- filter(grammys, first == input$singer_selection)$year
       return(data2)
   })
-  filtered3 <- reactive({
-      data3 <- baby_names %>% filter(first == input$authorselection) 
-      values$year <- filter(authors, first == input$authorselection)$year
+  author_filtered <- reactive({
+      data3 <- baby_names %>% filter(first == input$author_selection) 
+      values$year <- filter(authors, first == input$author_selection)$year
  
     return(data3)
   })
   
-  output$plot1 <- renderPlot({
-    p <- ggplot((data = filtered1()), mapping = aes(x = year, y = percent)) +
+  output$president_plot <- renderPlot({
+    p <- ggplot((data = president_filtereed()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y)
@@ -50,7 +33,7 @@ shinyServer(function(input, output, session) {
     return(p)
   })
   output$plot2 <- renderPlot({
-    q <- ggplot((data = filtered2()), mapping = aes(x = year, y = percent)) +
+    q <- ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y)
@@ -59,7 +42,7 @@ shinyServer(function(input, output, session) {
     return(q)
   })
   output$plot3 <- renderPlot({
-    w <- ggplot((data = filtered3()), mapping = aes(x = year, y = percent)) +
+    w <- ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y)
@@ -89,13 +72,13 @@ shinyServer(function(input, output, session) {
     str(input$plot_click)
   })
   
-  output$table <- renderDataTable({
-    return(filtered1())
+  output$president_table <- renderDataTable({
+    return(president_filtered())
   })
   
   #returns a summary of the filtered data
-  output$summary <- renderPrint({
-    summary(data.frame(filtered1()))
+  output$president_summary <- renderPrint({
+    summary(data.frame(president_filtered()))
   })
 })
 

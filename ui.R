@@ -27,90 +27,117 @@ shinyUI(fluidPage(theme = shinytheme("flatly"),
         
         # Presidents' user controls
         sidebarPanel(
-          selectInput("presselection", "Choose a President:", choices = presidents$first)
+          
+          # Allows the user to chose a president by first name, stores data in "president_selection"
+          # TODO: choose a full name. Should be good because we have no presidents with repeated names?
+          selectInput("president_selection", "Choose a President:", choices = presidents$first)
         ),
         
         # President's data
+        # TODO: Have to make labels specific to presidents
         mainPanel(
           tabsetPanel(type = "tabs",
-            tabPanel(strong("Plot"), plotOutput("plot1", click = 'plot_click', 
+                      
+            # Outputs "president_plot"
+            # TODO: might have to specify specific click/brush variable names? Not sure how this works
+            tabPanel(strong("Plot"), plotOutput("president_plot", click = 'plot_click', 
                      dblclick = "plot_dblclick", brush = brushOpts(
                      id = "plot_brush", resetOnNew = TRUE)), fluidRow(column
                      (width = 5, verbatimTextOutput("click_info")),
                      column(width = 5,verbatimTextOutput("brush_info")))),
             
+            # Outputs "president_table"
             tabPanel(strong("Table"), br(), p("This is a table of all the data 
                      points listed under the user's selected name and profession"),
-                     dataTableOutput("table"), wellPanel(helpText(a("President source data", 
+                     dataTableOutput("president_table"), wellPanel(helpText(a("President source data", 
                      href="http://www.worldbank.org/")))), 
             
+            # Outputs "president_summary"
             tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
-                                          displayed on the table table tab)"), verbatimTextOutput("summary"))
+                                          displayed on the table table tab)"), verbatimTextOutput("president_summary"))
           )
         )
       )
     ),
     
     # Musicians' page
-    tabPanel("Music",      
-      sidebarLayout(
+    tabPanel("Mucisians", 
+             sidebarLayout(
                
                # Mucisians' user controls
-        sidebarPanel(
-          selectInput("singerselection", "Choose a Singer:", choices = grammys$first)
-        ),
+               sidebarPanel(
+                 
+                 # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
+                 # TODO: fix choosing, do we have repeated full names?
+                 selectInput("mucisian_selection", "Choose a Mucisian:", choices = grammys$first)
+               ),
                
-               # Mucisians' data
-        mainPanel(
-          tabsetPanel(type = "tabs",tabPanel(strong("Plot"), plotOutput("plot2", 
-                              click = 'plot_click', dblclick = "plot_dblclick",
-                              brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)), 
-                              fluidRow(column(width = 5, verbatimTextOutput("click_info")),
-                              column(width = 5,verbatimTextOutput("brush_info")))),
+               # Mucisian's data
+               # TODO: Have to make labels specific to mucisian
+               mainPanel(
+                 tabsetPanel(type = "tabs",
                              
-                      tabPanel(strong("Table"), br(), p("This is a table of all the data 
-                               points listed under the user's selected name and profession"),
-                               dataTableOutput("table"), wellPanel(helpText(a("Baby names source data",
-                               href="http://www.worldbank.org/")), helpText(a("Grammy data source", 
-                               href = "http://www.worldbank.org/")), 
-                               helpText(a("President source data", href="http://www.worldbank.org/")))), 
+                             # Outputs "mucisian_plot"
+                             # TODO: might have to specify specific click/brush variable names? Not sure how this works
+                             tabPanel(strong("Plot"), plotOutput("mucisian_plot", click = 'plot_click', 
+                                                                 dblclick = "plot_dblclick", brush = brushOpts(
+                                                                   id = "plot_brush", resetOnNew = TRUE)), fluidRow(column
+                                                                                                                    (width = 5, verbatimTextOutput("click_info")),
+                                                                                                                    column(width = 5,verbatimTextOutput("brush_info")))),
                              
-                      tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
-                                   displayed on the table table tab)"), verbatimTextOutput("summary"))
-           )
-         )
-       )
+                             # Outputs "mucisian_table"
+                             # TODO: Source data
+                             tabPanel(strong("Table"), br(), p("This is a table of all the data 
+                                                               points listed under the user's selected name and profession"),
+                                      dataTableOutput("mucisian_table"), wellPanel(helpText(a("Mucisian source data", 
+                                                                                               href="http://www.worldbank.org/")))), 
+                             
+                             # Outputs "mucisian_summary"
+                             tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
+                                                                 displayed on the table table tab)"), verbatimTextOutput("mucisian_summary"))
+                             )
+                             )
+  )
     ),
     
     # Authors' data
-    tabPanel("Authors",      
+    tabPanel("Authors:", 
              sidebarLayout(
                
                # Authors' user controls
                sidebarPanel(
-                 selectInput("authorselection", "Choose a Author:", choices = authors$first)
+                 
+                 # Allows the user to chose a author by first name, stores data in "author_selection"
+                 # TODO: fix choosing
+                 selectInput("author_selection", "Choose a Author:", choices = authors$first)
                ),
                
-               # Authors' data
+               # Authors's data
+               # TODO: Have to make labels specific to authors
                mainPanel(
                  tabsetPanel(type = "tabs",
-                             tabPanel(strong("Plot"), plotOutput("plot3", click = 'plot_click', 
-                                      dblclick = "plot_dblclick", brush = brushOpts(
-                                      id = "plot_brush", resetOnNew = TRUE)), fluidRow(column(width = 5, 
-                                      verbatimTextOutput("click_info")),
-                                      column(width = 5,verbatimTextOutput("brush_info")))),
                              
+                             # Outputs "author_plot"
+                             # TODO: might have to specify specific click/brush variable names? Not sure how this works
+                             tabPanel(strong("Plot"), plotOutput("author_plot", click = 'plot_click', 
+                                                                 dblclick = "plot_dblclick", brush = brushOpts(
+                                                                   id = "plot_brush", resetOnNew = TRUE)), fluidRow(column
+                                                                                                                    (width = 5, verbatimTextOutput("click_info")),
+                                                                                                                    column(width = 5,verbatimTextOutput("brush_info")))),
+                             
+                             # Outputs "author_table"
+                             # TODO: Fix source data
                              tabPanel(strong("Table"), br(), p("This is a table of all the data 
-                                      points listed under the user's selected name and profession"),
-                                      dataTableOutput("table"), wellPanel(helpText(a("Baby names source data",
-                                      href="http://www.worldbank.org/")), helpText(a("Grammy data source", 
-                                      href = "http://www.worldbank.org/")), 
-                                      helpText(a("President source data", href="http://www.worldbank.org/")))), 
+                                                               points listed under the user's selected name and profession"),
+                                      dataTableOutput("author_table"), wellPanel(helpText(a("Author source data", 
+                                                                                               href="http://www.worldbank.org/")))), 
                              
+                             # Outputs "author_summary"
                              tabPanel(strong("Summary"), br(), p("Shows a summary of the data selected (same as the data points 
-                                      displayed on the table table tab)"), verbatimTextOutput("summary")))
-          )
-        )
+                                                                 displayed on the table table tab)"), verbatimTextOutput("author_summary"))
+                             )
+                             )
+  )
       ),
     
     # Data summary
