@@ -36,7 +36,7 @@ shinyServer(function(input, output, session) {
     president_data <-
       baby_names %>% filter(first == pres_first_name, gender == pres_gender)
     values$year <-
-      filter(presidents, first == pres_first_name)$year
+      filter(presidents, full == input$president_selection)$year
     return(president_data)
   })
   
@@ -47,7 +47,7 @@ shinyServer(function(input, output, session) {
     singer_data <-
       baby_names %>% filter(first == sing_first_name, gender == sing_gender)
     values$year <-
-      filter(grammys, first == sing_first_name)$year
+      filter(grammys, full == input$singer_selection)$year
     return(singer_data)
   })
   
@@ -58,7 +58,7 @@ shinyServer(function(input, output, session) {
     author_data <-
       baby_names %>% filter(first == auth_first_name, gender == auth_gender)
     values$year <-
-      filter(authors, first == auth_first_name)$year
+      filter(authors, full == input$author_selection)$year
     return(author_data)
   })
   
