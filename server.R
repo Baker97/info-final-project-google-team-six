@@ -6,16 +6,20 @@ library(tidyr)
 library(shinythemes)
 
 # Load in the datasets
-baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+baby_names <-
+  read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents <-
+  read.csv("data/presidents.csv", stringsAsFactors = FALSE)
 grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
-colnames(authors) <- c("year", "first","full", "gender", "name")
+authors <-
+  read.csv("data/authors.csv",
+           fileEncoding = "UTF-8-BOM",
+           stringsAsFactors = FALSE)
+colnames(authors) <- c("year", "first", "full", "gender", "name")
 
 # Server
 shinyServer(function(input, output, session) {
-  
-  # Stores reactive values 
+  # Stores reactive values
   values <- reactiveValues()
   # Sets the default year to "2000"
   values$year <- 2000
@@ -27,28 +31,41 @@ shinyServer(function(input, output, session) {
   
   # Stores in "president_filtered" filtered data based upon "president_selection"
   president_filtered <- reactive({
-    president_data <- baby_names %>% filter(first == input$president_selection, gender == "boy")
-    values$year <- filter(presidents, first == input$president_selection)$year
+    pres_first_name <- filter(presidents, full == input$president_selection)$first
+    pres_gender <- filter(presidents, full == input$president_selection)$gender
+    president_data <-
+      baby_names %>% filter(first == pres_first_name, gender == pres_gender)
+    values$year <-
+      filter(presidents, full == input$president_selection)$year
     return(president_data)
   })
   
   # Stores in "singer_filtered" filtered data based upon "singer_selection"
   singer_filtered <- reactive({
-    singer_data <- baby_names %>% filter(first == input$singer_selection)
-    values$year <- filter(grammys, first == input$singer_selection)$year
+    sing_first_name <- filter(grammys, full == input$singer_selection)$first
+    sing_gender <- filter(grammys, full == input$singer_selection)$gender
+    singer_data <-
+      baby_names %>% filter(first == sing_first_name, gender == sing_gender)
+    values$year <-
+      filter(grammys, full == input$singer_selection)$year
     return(singer_data)
   })
   
   # Stores in "author_filtered" filtered data based upon "author_selection"
   author_filtered <- reactive({
-    author_data <- baby_names %>% filter(first == input$author_selection) 
-    values$year <- filter(authors, first == input$author_selection)$year
+    auth_first_name <- filter(authors, full == input$author_selection)$first
+    auth_gender <- filter(authors, full == input$author_selection)$gender
+    author_data <-
+      baby_names %>% filter(first == auth_first_name, gender == auth_gender)
+    values$year <-
+      filter(authors, full == input$author_selection)$year
     return(author_data)
   })
   
   # Outputs to "president_plot" plot data for presidents
   output$president_plot <- renderPlot({
-    p <- ggplot((data = president_filtered()), mapping = aes(x = year, y = percent)) +
+    p <-
+      ggplot((data = president_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y)
@@ -57,7 +74,8 @@ shinyServer(function(input, output, session) {
   
   # Outputs to "singer_plot" plot data for singers
   output$singer_plot <- renderPlot({
-    q <- ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
+    q <-
+      ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges2$x, ylim = ranges2$y)
@@ -66,7 +84,8 @@ shinyServer(function(input, output, session) {
   
   # Outputs to "author_plot" plot data for authors
   output$author_plot <- renderPlot({
-    w <- ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
+    w <-
+      ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges3$x, ylim = ranges3$y)
