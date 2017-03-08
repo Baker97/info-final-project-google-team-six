@@ -52,11 +52,6 @@ shinyUI(fluidPage(
                      click = 'plot_click',
                      dblclick = "plot_dblclick",
                      brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
-                   ),
-                   fluidRow(
-                     column
-                     (width = 5, verbatimTextOutput("click_info")),
-                     column(width = 5, verbatimTextOutput("brush_info"))
                    )
                  ),
                  
@@ -83,20 +78,19 @@ shinyUI(fluidPage(
                    p(
                      "Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 ),
-                 verbatimTextOutput("president_summary")
+                 )
                    )
                ))
     )),
     
     # Musicians' page
-    tabPanel("Mucisians",
+    tabPanel("Singers",
              sidebarLayout(
                # Mucisians' user controls
                sidebarPanel(
                  # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
                  # TODO: fix choosing, do we have repeated full names?
-                 selectInput("mucisian_selection", "Choose a Mucisian:", choices = grammys$first)
+                 selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$first)
                ),
                
                # Mucisian's data
@@ -110,15 +104,10 @@ shinyUI(fluidPage(
                  tabPanel(
                    strong("Plot"),
                    plotOutput(
-                     "mucisian_plot",
+                     "singer_plot",
                      click = 'plot_click',
                      dblclick = "plot_dblclick",
                      brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
-                   ),
-                   fluidRow(
-                     column
-                     (width = 5, verbatimTextOutput("click_info")),
-                     column(width = 5, verbatimTextOutput("brush_info"))
                    )
                  ),
                  
@@ -131,7 +120,7 @@ shinyUI(fluidPage(
                      "This is a table of all the data
                      points listed under the user's selected name and profession"
                    ),
-                   dataTableOutput("mucisian_table"),
+                   dataTableOutput("singer_table"),
                    wellPanel(helpText(
                      a("Mucisian source data",
                        href =
@@ -146,8 +135,7 @@ shinyUI(fluidPage(
                    p(
                      "Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 ),
-                 verbatimTextOutput("mucisian_summary")
+                 )
                    )
                ))
     )),
@@ -176,11 +164,6 @@ shinyUI(fluidPage(
                      click = 'plot_click',
                      dblclick = "plot_dblclick",
                      brush = brushOpts(id = "plot_brush", resetOnNew = TRUE)
-                   ),
-                   fluidRow(
-                     column
-                     (width = 5, verbatimTextOutput("click_info")),
-                     column(width = 5, verbatimTextOutput("brush_info"))
                    )
                  ),
                  
@@ -209,8 +192,7 @@ shinyUI(fluidPage(
                    p(
                      "Shows a summary of the data selected (same as the data points
                      displayed on the table table tab)"
-                 ),
-                 verbatimTextOutput("author_summary")
+                 )
                    )
                ))
                )),
