@@ -5,16 +5,16 @@ library(dplyr)
 library(tidyr)
 
 # Load in the datasets
-baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
-grammys <- read.csv("data/grammy.csv",stringsAsFactors = FALSE)
-authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
+baby_names <- read.csv("data/baby-names.csv")
+presidents <- read.csv("data/presidents.csv")
+grammys <- read.csv("data/grammy.csv")
+authors <- read.csv("data/authors.csv", fileEncoding="UTF-8-BOM")
 colnames(authors) <- c("year", "first","full", "gender", "name")
 
 
 # Server
 shinyServer(function(input, output, session) {
-
+  
   values <- reactiveValues()
   values$year <- 2000
   ranges <- reactiveValues(x = NULL, y = NULL)
@@ -22,7 +22,7 @@ shinyServer(function(input, output, session) {
     
     if(input$showpres){
       data <- baby_names %>% filter(first == input$presselection, gender == "boy")
-      values$year <- filter(presidents, first == (filter(presidents, full == "Barack Obama")$first))$year
+      values$year <- filter(presidents, first == input$presselection)$year
     }else if(input$showsing){
       data <- baby_names %>% filter(first == input$singerselection)
       values$year <- filter(grammys, first == input$singerselection)$year
@@ -30,9 +30,9 @@ shinyServer(function(input, output, session) {
       data <- baby_names %>% filter(first == input$authorselection) 
       values$year <- filter(authors, first == input$authorselection)$year
     } else {
-    validate(
-      need(input$data != "", "Please select a data set")
-    )
+      validate(
+        need(input$data != "", "Please select a data set")
+      )
     }
     return(data)
   })
