@@ -64,6 +64,10 @@ shinyServer(function(input, output, session) {
     p <-
       ggplot((data = president_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
+      labs(
+        x = "years",
+        y = "Percent of population with name"
+      ) +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges$x, ylim = ranges$y) +
       labs(title = paste("Displaying data for", input$president_selection) )
@@ -75,6 +79,10 @@ shinyServer(function(input, output, session) {
     q <-
       ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
+      labs(
+        x = "years",
+          y = "Percent of population with name"
+      ) +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges2$x, ylim = ranges2$y) +
       labs(title = paste("Displaying data for", input$singer_selection) )
@@ -86,6 +94,10 @@ shinyServer(function(input, output, session) {
     w <-
       ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
+      labs(
+        x = "years",
+        y = "Percent of population with name"
+      ) +
       geom_vline(xintercept = values$year) +
       coord_cartesian(xlim = ranges3$x, ylim = ranges3$y) +
       labs(title = paste("Displaying data for", input$author_selection) )
