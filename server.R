@@ -87,7 +87,8 @@ shinyServer(function(input, output, session) {
       ggplot((data = author_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
-      coord_cartesian(xlim = ranges3$x, ylim = ranges3$y)
+      coord_cartesian(xlim = ranges3$x, ylim = ranges3$y) +
+      labs(title = paste("Displaying data for", input$author_selection) )
     return(w)
   })
   
