@@ -277,19 +277,25 @@ shinyServer(function(input, output, session) {
   
   
   # Statistical Summaries
-  
   # Outputs a summary for presidents to "president_summary", based upon the influence graphs
   output$president_summary <- renderText({
+    paste("For the name: ", president_filtered()$first[1], ", The maximum percent of baby names from our data set
+          was: ", max(president_filtered()$percent), " and the minimum percent was: ", min(president_filtered()$percent),
+            sep = "") 
     
   })
   
   # Outputs a summary for singer to "singer_summary", based upon the influence graphs
   output$singer_summary <- renderText({
-    
+    paste("For the name: ", singer_filtered()$first[1], ", The maximum percent of baby names from our data set
+          was: ", max(singer_filtered()$percent), " and the minimum percent was: ", min(singer_filtered()$percent),
+          sep = "") 
   })
   
   # Outputs a summary for authors to "author_summary", based upon the influence graphs
   output$author_summary <- renderText({
-    
+    paste("For the name: ", author_filtered()$first[1], ", The maximum percent of baby names from our data set
+          was: ", max(author_filtered()$percent), " and the minimum percent was: ", min(author_filtered()$percent),
+          sep = "") 
   })
 })
