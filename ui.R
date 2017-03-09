@@ -291,13 +291,16 @@ shinyUI(fluidPage(
              # Authors' user controls
              sidebarPanel(
                strong(h3("Team Members")),
+               img("", src="andrew.jpg", width = 100, height = 100),
                strong("Andrew Baker"),
                p("Email: adbaker2@uw.edu"),
                strong("Daniel Barnes"),
                p("Email: dbarnes2@uw.edu"),
                strong("Paul Vaden"),
                p("Email: pvaden@uw.edu"),
+               img("", src="nerd1.png", width = 100, height = 150),
                strong("John Batts"),
+               
                p("Email: battsj5@uw.edu")
              ),
              
