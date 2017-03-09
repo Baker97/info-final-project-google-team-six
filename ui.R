@@ -30,7 +30,15 @@ shinyUI(fluidPage(
     tabPanel("Home",
              sidebarLayout(
                sidebarPanel(
-                 p(strong("test"),"hi")
+                 p(strong("Welcome"),"to the Baby Names Observation Data!"),
+                 br(),
+                 p("We analyzed trends in baby names in relation to:",strong("Presidents, Singers, and Authors."),
+                   "Please feel free to browse through the information we have compiled for you. You may select
+                   any tab to view it, and inside each data tab, there is an interactive graph. You will find our personal
+                   observations inside of the", strong("Summary"), "tab as well as some information about us in the", 
+                   strong("About"), "tab."),
+                 br(),
+                 p(strong("Happy Browsing!"))
                ),
                mainPanel(
                )
