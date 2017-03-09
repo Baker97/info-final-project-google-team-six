@@ -148,7 +148,7 @@ shinyServer(function(input, output, session) {
   # prints information about plot click
   output$singerclick_info <- renderPrint({
     cat("input$singerplot_click:\n")
-    str(input$plot_click)
+    str(input$singerplot_click)
   })
   output$authbrush_info <- renderPrint({
     cat("input$authplot_brush:\n")
