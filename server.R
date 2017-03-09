@@ -134,8 +134,9 @@ shinyServer(function(input, output, session) {
   
   # prints information about plot click
   output$presclick_info <- renderPrint({
-    cat("input$presplot_click:\n")
-    str(input$presplot_click)
+    pres_first_name <- filter(presidents, full == input$president_selection)$first
+    pres_gender <- filter(presidents, full == input$president_selection)$gender
+    nearPoints(filter(baby_names, first == pres_first_name, gender == pres_gender), input$presplot_click)
   })
   output$singerbrush_info <- renderPrint({
     cat("input$singerplot_brush:\n")
@@ -144,8 +145,9 @@ shinyServer(function(input, output, session) {
   
   # prints information about plot click
   output$singerclick_info <- renderPrint({
-    cat("input$singerplot_click:\n")
-    str(input$singerplot_click)
+    sing_first_name <- filter(grammys, full == input$singer_selection)$first
+    sing_gender <- filter(grammys, full == input$singer_selection)$gender
+    nearPoints(filter(baby_names, first == sing_first_name, gender == sing_gender), input$singerplot_click)
   })
   output$authbrush_info <- renderPrint({
     cat("input$authplot_brush:\n")
@@ -154,8 +156,9 @@ shinyServer(function(input, output, session) {
   
   # prints information about plot click
   output$authclick_info <- renderPrint({
-    cat("input$authplot_click:\n")
-    str(input$authplot_click)
+    auth_first_name <- filter(authors, full == input$author_selection)$first
+    auth_gender <- filter(authors, full == input$author_selection)$gender
+    nearPoints(filter(baby_names, first == auth_first_name, gender == auth_gender), input$authplot_click)
   })
   
   
