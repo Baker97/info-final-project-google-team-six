@@ -21,7 +21,7 @@ shinyServer(function(input, output, session) {
   # Sets the default year to "2000"
   values$year <- 2000
   
-  # sets the range for plots?
+  # sets the range for plots for zooming
   ranges <- reactiveValues(x = NULL, y = NULL)
   ranges2 <- reactiveValues(x = NULL, y = NULL)
   ranges3 <- reactiveValues(x = NULL, y = NULL)
@@ -92,9 +92,8 @@ shinyServer(function(input, output, session) {
     return(w)
   })
   
-  # Not sure if we need separate clicks/brushes for each plot
-  
-  # observes event "plot_dblclick", and zooms in on range
+  # for each graph there is an observe event that allows the range of the graph to be adjusted by brushing
+  # can also be reset by double clicking
   observeEvent(input$presplot_dblclick, {
     presbrush <- input$presplot_brush
     if (!is.null(presbrush)) {
@@ -106,6 +105,7 @@ shinyServer(function(input, output, session) {
       ranges$y <- NULL
     }
   })
+  
   observeEvent(input$singerplot_dblclick, {
     singerbrush <- input$singerplot_brush
     if (!is.null(singerbrush)) {
@@ -117,6 +117,7 @@ shinyServer(function(input, output, session) {
       ranges2$y <- NULL
     }
   })
+  
   observeEvent(input$authplot_dblclick, {
     authbrush <- input$authplot_brush
     if (!is.null(authbrush)) {

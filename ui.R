@@ -21,7 +21,7 @@ shinyUI(fluidPage(
   titlePanel("Comparing popular baby names vs. famous people"),
   br(),
   
-  # Nav bar, with nav bar title
+  # Nav bar, with Husky logo for extra coolness
   navbarPage(
 
     div(img("", src="Huskies.png",width = 40, height = 40)),
@@ -40,6 +40,7 @@ shinyUI(fluidPage(
                  strong("John Batts"),
                  p("Email: battsj5@uw.edu")
                ),
+               
                mainPanel(
                  h1(strong("Welcome"),"to the Baby Names Observation Data!"),
                  h2("Who we are"),
@@ -60,6 +61,8 @@ shinyUI(fluidPage(
                  br(),
                  p(strong("Happy Browsing!")),
                  br(),
+                 
+                 #these are the sources for all our data
                  wellPanel(h1("Data set sources"),
                  a("Baby Names Source", 
                    href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv"),
@@ -68,10 +71,11 @@ shinyUI(fluidPage(
                    href="https://en.wikipedia.org/wiki/Grammy_Award_for_Best_New_Artist"),
                  br(),
                  a("Authors Source",
-                   href="https://en.wikipedia.org/wiki/Publishers_Weekly_lists_of_bestselling_novels_in_the_United_States")
-                 )
-               )
-             )),
+                   href="https://en.wikipedia.org/wiki/Publishers_Weekly_lists_of_bestselling_novels_in_the_United_States"))
+         )
+       )
+     ),
+    
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
@@ -97,6 +101,7 @@ shinyUI(fluidPage(
                      dblclick = "presplot_dblclick",
                      brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE)
                    ),
+                   
                    wellPanel(p("Clicking once on the graph will display information about where you clicked
                                on the left column below. Holding the left click and moving your cursor will 
                                allow you to brush over an area. Information about the data points in the area 
@@ -110,31 +115,30 @@ shinyUI(fluidPage(
                    )
                  ),
                  
-                 
                  # Outputs "president_table"
                  tabPanel(
                    strong("Table"),
                    br(),
-                   p(
-                     "This is a table of all the data
+                   p("This is a table of all the data
                      points listed under the user's selected name"
                    ),
                    dataTableOutput("president_table")
-                   ),
+                 ),
                    
                  
                  # Outputs "president_summary"
                  tabPanel(
                    strong("Summary"),
                    br(),
-                   p(
-                     "Shows a summary of the data selected (same as the data points
+                   p("Shows a summary of the data selected (same as the data points
                      displayed on the table tab)"),
                  verbatimTextOutput("president_summary")
                  
-                   )
-               ))
-  )),
+          )
+        )
+      )
+    )
+  ),
   
   # Musicians' page
   tabPanel("Singers",
@@ -151,16 +155,18 @@ shinyUI(fluidPage(
              mainPanel(tabsetPanel(
                type = "tabs",
                
-               # Outputs "mucisian_plot"
-               # TODO: might have to specify specific click/brush variable names? Not sure how this works
+               # Outputs "musician_plot"
                tabPanel(
                  strong("Plot"),
                  plotOutput(
                    "singer_plot",
                    click = 'singerplot_click',
                    dblclick = "singerplot_dblclick",
+                   
+                   #allows the brush to be reset when zooming in
                    brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
                  ),
+                 
                  wellPanel(p("Clicking once on the graph will display information about where you clicked
                                on the left column below. Holding the left click and moving your cursor will 
                              allow you to brush over an area. Information about the data points in the area 
@@ -181,30 +187,30 @@ shinyUI(fluidPage(
                tabPanel(
                  strong("Table"),
                  br(),
-                 p(
-                   "This is a table of all the data
+                 p("This is a table of all the data
                    points listed under the user's selected name"
                  ),
+                 
                  dataTableOutput("singer_table"),
                  wellPanel(helpText(
                    a("Musician source data",
                      href =
-                       "http://www.worldbank.org/")
-                 ))
-                 ),
+                       "http://www.worldbank.org/")))
+               ),
                
                # Outputs "mucisian_summary"
                tabPanel(
                  strong("Summary"),
                  br(),
-                 p(
-                   "Shows a summary of the data selected (same as the data points
-                   displayed on the table table tab"),
-               verbatimTextOutput("singer_summary")
+                 p("Shows a summary of the data selected (same as the data points
+                   displayed on the table tab)"),
+                 verbatimTextOutput("singer_summary")
                
-                 )
-             ))
-  )),
+               )
+        )
+      )
+    )
+  ),
   
   # Authors' data
   tabPanel("Authors",
@@ -243,7 +249,6 @@ shinyUI(fluidPage(
                    column(width = 5, verbatimTextOutput("authclick_info")),
                    column(width = 5, verbatimTextOutput("authbrush_info"))
                  )
-                 
                ),
                
                # Outputs "author_table"
@@ -259,21 +264,22 @@ shinyUI(fluidPage(
                  wellPanel(helpText(
                    a("Author source data",
                      href =
-                       "http://www.worldbank.org/")
-                 ))
-                 ),
+                       "http://www.worldbank.org/")))
+               ),
                
                # Outputs "author_summary"
                tabPanel(
                  strong("Summary"),
                  br(),
                  p("Shows a summary of the data selected (same as the data points
-                   displayed on the table table tab"),
+                   displayed on the table tab)"),
                verbatimTextOutput("author_summary")
                
-                 )
-             ))
-           )),
+               )
+        )
+      )
+    )
+  ),
   
   # Data summary
   tabPanel("Summary",
@@ -331,8 +337,7 @@ shinyUI(fluidPage(
                       and Alexandra Ripley were all experiencing gain in popularity for their first names,
                       however, after receiving their award, their first names started to DECLINE in popularity.
                       All of the other names (103 out of 109) showed no significant impact (i.e. change in direction
-                      for name popularity).")
-             )
+                      for name popularity)."))
            ),
            
            # Explanation for Influence Graphs
@@ -346,7 +351,8 @@ shinyUI(fluidPage(
                the linear regression before from the linear regression after: isolating the impact the person had. This gives us a percent
                change in babies getting named with the same first name as our influential person, that we attribute to that person's
                influence."),
-             strong(" In order to make this data more readable, these percent influence numbers were multiplied by 1000. For instance,
+             
+             strong("In order to make this data more readable, these percent influence numbers were multiplied by 1000. For instance,
                     a person with an influence number of 0.3 is associated with a +0.0003% difference in the popularity of their first
                     name used naming babies.")
            ),
@@ -390,6 +396,10 @@ shinyUI(fluidPage(
                     # Outputs "author_influence"
                     dataTableOutput("author_influence")
              )
-       )))))
+        )
+      )
+    )
+  )
+)
   
 
