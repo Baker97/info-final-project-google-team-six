@@ -191,11 +191,7 @@ shinyUI(fluidPage(
                    points listed under the user's selected name"
                  ),
                  
-                 dataTableOutput("singer_table"),
-                 wellPanel(helpText(
-                   a("Musician source data",
-                     href =
-                       "http://www.worldbank.org/")))
+                 dataTableOutput("singer_table")
                ),
                
                # Outputs "mucisian_summary"
@@ -260,11 +256,7 @@ shinyUI(fluidPage(
                    points listed under the user's selected name"
                  ),
                  
-                 dataTableOutput("author_table"),
-                 wellPanel(helpText(
-                   a("Author source data",
-                     href =
-                       "http://www.worldbank.org/")))
+                 dataTableOutput("author_table")
                ),
                
                # Outputs "author_summary"
