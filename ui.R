@@ -280,7 +280,8 @@ shinyUI(fluidPage(
            fluidRow(
              h1("Summary of Collected Data", align = "center"),
              p("Our project's goal is to see what influences American culture the most: academia,
-               pop culture, or politics, etc. We tried to choose the \"biggest\" names in each 
+               pop culture, or politics. Our hypothesis is that important cultural icons have a statistically 
+               significant impact upon baby naming trends. We tried to choose the \"biggest\" names in each 
                area, but what's \"hot\" or \"big\" can be subjective. With politics, it's easier 
                because presidential elections have the highest voter turnout compared to any other 
                election in government and includes the whole country, so this we choose to compare 
@@ -332,6 +333,18 @@ shinyUI(fluidPage(
                       for name popularity)."))
            ),
            
+           # Conclusion
+           fluidRow(
+             h2("Overall Conclusion", align = "center"),
+             p("Over the course of this project, as we performed more calculations and statistical analysis, we began to notice that
+               we might have over-estimated how much influence one person can have over all of America's baby names. In 2009, there were
+               4.13 million children born in the United States- even if some parents were to name their children based off of important figures
+               of the day, this number of parents would be too small compared to the sheer amount of parents who name their children conventionally,
+               for other reasons. For presidents, we noticed a large short-term influence, but this quickly faded, showing that it did not change
+               cultural trends. Overall, we were unable to prove our hypothesis that important cultural figures impact our baby naming convention.")
+             
+             ),
+           
            # Explanation for Influence Graphs
            fluidRow(
              h2("About the following graphs", align = "center"),
@@ -343,7 +356,6 @@ shinyUI(fluidPage(
                the linear regression before from the linear regression after: isolating the impact the person had. This gives us a percent
                change in babies getting named with the same first name as our influential person, that we attribute to that person's
                influence."),
-             
              strong("In order to make this data more readable, these percent influence numbers were multiplied by 1000. For instance,
                     a person with an influence number of 0.3 is associated with a +0.0003% difference in the popularity of their first
                     name used naming babies.")
@@ -353,38 +365,29 @@ shinyUI(fluidPage(
            fluidRow(
              column(4,
                     hr(),
-                    h4(strong("Statistical Observations (from tables below):")),
-                    textOutput("president_observations")
+                    h4(strong("Statistical Observations for presidents:"))
                     ),
              column(4,
                     hr(),
-                    h4(strong("Statistical Observations (from tables below):")),
-                    textOutput("singer_observations")
+                    h4(strong("Statistical Observations for singers:"))
                     ),
              column(4,
                     hr(),
-                    h4(strong("Statistical Observations (from tables below):")),
-                    textOutput("author_observations")
+                    h4(strong("Statistical Observations for authors:"))
                     )
              ),
            
            # Displays each table, in separate columns
            fluidRow(
              column(4,
-                    hr(),
-                    
                     # Outputs "president_influence"
                     dataTableOutput("president_influence")
              ),
              column(4,
-                    hr(),
-                    
                     # Outputs "singer_influence"
                     dataTableOutput("singer_influence")
              ),
              column(4,
-                    hr(),
-                    
                     # Outputs "author_influence"
                     dataTableOutput("author_influence")
              )
