@@ -1,112 +1,110 @@
-﻿year,first,full,gender,name
-1900,Mary,Mary Johnston,girl,To Have and to Hold
-1901,Winston,Winston Churchill,boy,The Crisis
-1902,Owen,Owen Wister,boy,The Virginian
-1903,Mary,Mary Augusta Ward,girl,Lady Rose's Daughter
-1904,Winston,Winston Churchill,boy,The Crossing
-1905,Mary,Mary Augusta Ward,girl,The Marriage of William Ashe
-1906,Winston,Winston Churchill,boy,Coniston
-1907,Frances,Frances Little,girl,The Lady of the Decoration
-1908,Winston,Winston Churchill,boy,Mr. Crewe's Career
-1909,Basil,Basil King,boy,The Inner Shrine
-1910,Florence,Florence L. Barclay,girl,The Rosary
-1911,Jeffrey,Jeffrey Farnol,boy,The Broad Highway
-1912,Gene,Gene Stratton Porter,girl,The Harvester
-1913,Winston,Winston Churchill,boy,The Inside of the Cup
-1914,Harold,Harold Bell Wright,boy,The Eyes of the World
-1915,Booth,Booth Tarkington,boy,The Turmoil
-1916,Booth,Booth Tarkington,boy,Seventeen
-1917,Herbert,H. G. Wells,boy,Mr. Britling Sees It Through
-1918,Zane,Zane Grey,boy,The U.P. Trail
-1919,Vicente,Vicente Blasco Ibanez,boy,The Four Horsemen of the Apocalypse
-1920,Zane,Zane Grey,boy,The Man of the Forest
-1921,Sinclair,Sinclair Lewis,boy,Main Street
-1922,Arthur,A. S. M. Hutchinson,boy,If Winter Comes
-1923,Gertrude,Gertrude Atherton,girl,Black Oxen
-1924,Edna,Edna Ferber,girl,So Big
-1925,Arthur,A. Hamilton Gibbs,boy,Soundings
-1926,John,John Erskine,boy,The Private Life of Helen of Troy
-1927,Sinclair,Sinclair Lewis,boy,Elmer Gantry
-1928,Thornton,Thornton Wilder,boy,The Bridge of San Luis Rey
-1929,Erich,Erich Maria Remarque,boy,All Quiet on the Western Front
-1930,Edna,Edna Ferber,girl,Cimarron
-1931,Pearl,Pearl S. Buck,girl,The Good Earth
-1932,Pearl,Pearl S. Buck,girl,The Good Earth
-1933,Hervey,Hervey Allen,boy,Anthony Adverse
-1934,Hervey,Hervey Allen,boy,Anthony Adverse
-1935,Lloyd,Lloyd C. Douglas,boy,Green Light
-1936,Margaret,Margaret Mitchell,girl,Gone with the Wind
-1937,Margaret,Margaret Mitchell,girl,Gone with the Wind
-1938,Marjorie,Marjorie Kinnan Rawlings,girl,The Yearling
-1939,John,John Steinbeck,boy,The Grapes of Wrath
-1940,Richard,Richard Llewellyn,boy,How Green Was My Valley
-1941,Archibald,A. J. Cronin,boy,The Keys of the Kingdom
-1942,Franz,Franz Werfel,boy,The Song of Bernadette
-1943,Lloyd,Lloyd C. Douglas,boy,The Robe
-1944,Lillian,Lillian Smith,boy,Strange Fruit
-1945,Kathleen,Kathleen Winsor,boy,Forever Amber
-1946,Daphne,Daphne du Maurier,girl,The King's General
-1947,Russell,Russell Janney,boy,The Miracle of the Bells
-1948,Lloyd,Lloyd C. Douglas,boy,The Big Fisherman
-1949,Mika,Mika Waltari,boy,The Egyptian
-1950,Henry,Henry Morton Robinson,boy,The Cardinal
-1951,James,James Jones,boy,From Here to Eternity
-1952,Thomas,Thomas B. Costain,boy,The Silver Chalice
-1953,Lloyd,Lloyd C. Douglas,boy,The Robe
-1954,Morton,Morton Thompson,boy,Not as a Stranger
-1955,Herman,Herman Wouk,boy,Marjorie Morningstar
-1956,William,William Brinkley,boy,Don't Go Near the Water
-1957,James,James Gould Cozzens,boy,By Love Possessed
-1958,Boris,Boris Pasternak,boy,Doctor Zhivago
-1959,Leon,Leon Uris,boy,Exodus
-1960,Allen,Allen Drury,boy,Advise and Consent
-1961,Irving,Irving Stone,boy,The Agony and the Ecstasy
-1962,Katherine,Katherine Anne Porter,girl,Ship of Fools
-1963,Morris,Morris West,boy,The Shoes of the Fisherman
-1964,John,John le Carre,boy,The Spy Who Came in from the Cold
-1965,James,James A. Michener,boy,The Source
-1966,Jacqueline,Jacqueline Susann,girl,Valley of the Dolls
-1967,Elia,Elia Kazan,boy,The Arrangement
-1968,Arthur,Arthur Hailey,boy,Airport
-1969,Philip,Philip Roth,boy,Portnoy's Complaint
-1970,Erich,Erich Segal,boy,Love Story
-1971,Arthur,Arthur Hailey,boy,Wheels
-1972,Richard,Richard Bach,boy,Jonathan Livingston Seagull
-1973,Richard,Richard Bach,boy,Jonathan Livingston Seagull
-1974,James,James A. Michener,boy,Centennial
-1975,Edgar,E. L. Doctorow,boy,Ragtime
-1976,Leon,Leon Uris,boy,Trinity
-1977,John,J. R. Tolkien,boy,The Silmarillion
-1978,James,James A. Michener,boy,Chesapeake
-1979,Robert,Ludlum,boy,The Matarese Circle
-1980,James,James A. Michener,boy,The Covenant
-1981,James,James Clavell,boy,Noble House
-1982,William,William Kotzwinkle,boy,"E.T., The Extraterrestrial"
-1983,James,James Kahn,boy,Return of the Jedi
-1984,Stephen,Stephen King,boy,The Talisman
-1985,Jean,Jean M. Auel,girl,The Mammoth Hunters
-1986,Stephen,Stephen King,boy,It
-1987,Stephen,Stephen King,boy,The Tommyknockers
-1988,Tom,Tom Clancy,boy,The Cardinal of the Kremlin
-1989,Tom,Tom Clancy,boy,Clear and Present Danger
-1990,Jean,Jean M. Auel,girl,The Plains of Passage
-1991,Alexandra,Alexandra Ripley,girl,Scarlett
-1992,Stephen,Stephen King,boy,Dolores Claiborne
-1993,Robert,Robert James Waller,boy,The Bridges of Madison County
-1994,John,John Grisham,boy,The Chamber
-1995,John,John Grisham,boy,The Rainmaker
-1996,John,John Grisham,boy,The Runaway Jury
-1997,John,John Grisham,boy,The Partner
-1998,John,John Grisham,boy,The Street Lawyer
-1999,John,John Grisham,boy,The Testament
-2000,John,John Grisham,boy,The Brethren
-2001,Jerry,Jerry B. Jenkins,boy,Desecration
-2002,John,John Grisham,boy,The Summons
-2003,Joanne,J.K. Rowling,girl,Harry Potter and the Order of the Phoenix
-2004,Dan,Dan Brown,boy,The Da Vinci Code
-2005,John,John Grisham,boy,The Broker
-2006,Mitch,Mitch Albom,boy,For One More Day
-2007,Joanne,J.K. Rowling,girl,Harry Potter and the Deathly Hallows
-2008,John,John Grisham,boy,The Appeal
-2009,Dan,Dan Brown,boy,The Lost Symbol
-2010,Stieg,Stieg Larsson,boy,The Girl Who Kicked the Hornet's Nest
+year	first	full	gender	name
+1900	Mary	Mary Johnston	girl	To Have and to Hold
+1901	Winston	Winston Churchill	boy	The Crisis
+1902	Owen	Owen Wister	boy	The Virginian
+1903	Mary	Mary Augusta Ward	girl	Lady Rose's Daughter
+1904	Winston	Winston Churchill	boy	The Crossing
+1905	Mary	Mary Augusta Ward	girl	The Marriage of William Ashe
+1906	Winston	Winston Churchill	boy	Coniston
+1907	Frances	Frances Little	girl	The Lady of the Decoration
+1908	Winston	Winston Churchill	boy	Mr. Crewe's Career
+1909	Basil	Basil King	boy	The Inner Shrine
+1910	Florence	Florence L. Barclay	girl	The Rosary
+1911	Jeffrey	Jeffrey Farnol	boy	The Broad Highway
+1912	Gene	Gene Stratton Porter	girl	The Harvester
+1913	Winston	Winston Churchill	boy	The Inside of the Cup
+1914	Harold	Harold Bell Wright	boy	The Eyes of the World
+1915	Booth	Booth Tarkington	boy	The Turmoil
+1916	Booth	Booth Tarkington	boy	Seventeen
+1917	Herbert	H. G. Wells	boy	Mr. Britling Sees It Through
+1918	Zane	Zane Grey	boy	The U.P. Trail
+1919	Vicente	Vicente Blasco Ibanez	boy	The Four Horsemen of the Apocalypse
+1920	Zane	Zane Grey	boy	The Man of the Forest
+1921	Sinclair	Sinclair Lewis	boy	Main Street
+1922	Arthur	A. S. M. Hutchinson	boy	If Winter Comes
+1923	Gertrude	Gertrude Atherton	girl	Black Oxen
+1924	Edna	Edna Ferber	girl	So Big
+1925	Arthur	A. Hamilton Gibbs	boy	Soundings
+1926	John	John Erskine	boy	The Private Life of Helen of Troy
+1927	Sinclair	Sinclair Lewis	boy	Elmer Gantry
+1928	Thornton	Thornton Wilder	boy	The Bridge of San Luis Rey
+1929	Erich	Erich Maria Remarque	boy	All Quiet on the Western Front
+1930	Edna	Edna Ferber	girl	Cimarron
+1931	Pearl	Pearl S. Buck	girl	The Good Earth
+1932	Pearl	Pearl S. Buck	girl	The Good Earth
+1933	Hervey	Hervey Allen	boy	Anthony Adverse
+1934	Hervey	Hervey Allen	boy	Anthony Adverse
+1935	Lloyd	Lloyd C. Douglas	boy	Green Light
+1936	Margaret	Margaret Mitchell	girl	Gone with the Wind
+1937	Margaret	Margaret Mitchell	girl	Gone with the Wind
+1938	Marjorie	Marjorie Kinnan Rawlings	girl	The Yearling
+1939	John	John Steinbeck	boy	The Grapes of Wrath
+1940	Richard	Richard Llewellyn	boy	How Green Was My Valley
+1941	Archibald	A. J. Cronin	boy	The Keys of the Kingdom
+1942	Franz	Franz Werfel	boy	The Song of Bernadette
+1943	Lloyd	Lloyd C. Douglas	boy	The Robe
+1944	Lillian	Lillian Smith	boy	Strange Fruit
+1945	Kathleen	Kathleen Winsor	boy	Forever Amber
+1946	Daphne	Daphne du Maurier	girl	The King's General
+1947	Russell	Russell Janney	boy	The Miracle of the Bells
+1948	Lloyd	Lloyd C. Douglas	boy	The Big Fisherman
+1949	Mika	Mika Waltari	boy	The Egyptian
+1950	Henry	Henry Morton Robinson	boy	The Cardinal
+1951	James	James Jones	boy	From Here to Eternity
+1952	Thomas	Thomas B. Costain	boy	The Silver Chalice
+1953	Lloyd	Lloyd C. Douglas	boy	The Robe
+1954	Morton	Morton Thompson	boy	Not as a Stranger
+1955	Herman	Herman Wouk	boy	Marjorie Morningstar
+1956	William	William Brinkley	boy	Don't Go Near the Water
+1957	James	James Gould Cozzens	boy	By Love Possessed
+1958	Boris	Boris Pasternak	boy	Doctor Zhivago
+1959	Leon	Leon Uris	boy	Exodus
+1960	Allen	Allen Drury	boy	Advise and Consent
+1961	Irving	Irving Stone	boy	The Agony and the Ecstasy
+1962	Katherine	Katherine Anne Porter	girl	Ship of Fools
+1963	Morris	Morris West	boy	The Shoes of the Fisherman
+1964	John	John le Carre	boy	The Spy Who Came in from the Cold
+1965	James	James A. Michener	boy	The Source
+1966	Jacqueline	Jacqueline Susann	girl	Valley of the Dolls
+1967	Elia	Elia Kazan	boy	The Arrangement
+1968	Arthur	Arthur Hailey	boy	Airport
+1969	Philip	Philip Roth	boy	Portnoy's Complaint
+1970	Erich	Erich Segal	boy	Love Story
+1971	Arthur	Arthur Hailey	boy	Wheels
+1972	Richard	Richard Bach	boy	Jonathan Livingston Seagull
+1973	Richard	Richard Bach	boy	Jonathan Livingston Seagull
+1974	James	James A. Michener	boy	Centennial
+1975	Edgar	E. L. Doctorow	boy	Ragtime
+1976	Leon	Leon Uris	boy	Trinity
+1977	John	J. R. Tolkien	boy	The Silmarillion
+1978	James	James A. Michener	boy	Chesapeake
+1979	Robert	Ludlum	boy	The Matarese Circle
+1980	James	James A. Michener	boy	The Covenant
+1981	James	James Clavell	boy	Noble House
+1982	William	William Kotzwinkle	boy	"E.T., The Extraterrestrial"
+1983	James	James Kahn	boy	Return of the Jedi
+1984	Stephen	Stephen King	boy	The Talisman
+1985	Jean	Jean M. Auel	girl	The Mammoth Hunters
+1986	Stephen	Stephen King	boy	It
+1987	Stephen	Stephen King	boy	The Tommyknockers
+1988	Tom	Tom Clancy	boy	The Cardinal of the Kremlin
+1989	Tom	Tom Clancy	boy	Clear and Present Danger
+1990	Jean	Jean M. Auel	girl	The Plains of Passage
+1991	Alexandra	Alexandra Ripley	girl	Scarlett
+1992	Stephen	Stephen King	boy	Dolores Claiborne
+1993	Robert	Robert James Waller	boy	The Bridges of Madison County
+1994	John	John Grisham	boy	The Chamber
+1995	John	John Grisham	boy	The Rainmaker
+1996	John	John Grisham	boy	The Runaway Jury
+1997	John	John Grisham	boy	The Partner
+1998	John	John Grisham	boy	The Street Lawyer
+1999	John	John Grisham	boy	The Testament
+2000	John	John Grisham	boy	The Brethren
+2001	Jerry	Jerry B. Jenkins	boy	Desecration
+2002	John	John Grisham	boy	The Summons
+2003	Joanne	J.K. Rowling	girl	Harry Potter and the Order of the Phoenix
+2004	Dan	Dan Brown	boy	The Da Vinci Code
+2005	John	John Grisham	boy	The Broker
+2006	Mitch	Mitch Albom	boy	For One More Day
+2007	Joanne	J.K. Rowling	girl	Harry Potter and the Deathly Hallows
+2008	John	John Grisham	boy	The Appeal

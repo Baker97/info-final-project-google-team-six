@@ -257,7 +257,13 @@ shinyUI(fluidPage(
              ),
              column(4,
                     h4("Authors"),
-                    p("Authors data.")
+                    p("Authors data."),
+                    br(),
+                    p("Thomas B. Costain, John Le Carre, Jacqueline Susann, Erich Segal, Stephen King, 
+                      and Alexandra Ripley were all experiencing gain in popularity for their first names,
+                      however, after receiving their award, their first names started to DECLINE in popularity.
+                      All of the other names (103 out of 109) showed no significant impact (i.e. change in direction
+                      for name popularity).") 
              )
            ),
            
