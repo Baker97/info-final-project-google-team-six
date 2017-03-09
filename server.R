@@ -65,7 +65,8 @@ shinyServer(function(input, output, session) {
       ggplot((data = president_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
-      coord_cartesian(xlim = ranges$x, ylim = ranges$y)
+      coord_cartesian(xlim = ranges$x, ylim = ranges$y) +
+      labs(title = paste("Displaying data for", input$president_selection) )
     return(p)
   })
   
