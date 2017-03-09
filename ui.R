@@ -229,7 +229,9 @@ shinyUI(fluidPage(
                              allow you to brush over an area. Information about the data points in the area 
                              encompassed will be displayed on the right column below. doubling clicking with 
                              an area encompassed will zoom in on that section of the plot. doubling clicking
-                             again (without an encompassed area) will revert the plot to its normal size.")),
+                             again (without an encompassed area) will revert the plot to its normal size.
+                             The line(s) above indicate the year(s) that the selected author won the award for
+                             'Best Selling Novel.'")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("authclick_info")),
                    column(width = 5, verbatimTextOutput("authbrush_info"))
