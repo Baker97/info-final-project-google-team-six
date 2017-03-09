@@ -6,13 +6,10 @@ library(tidyr)
 library(shinythemes)
 
 # Load in the datasets
-baby_names <-
-  read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <-
-  read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
 grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
-authors <-
-  read.csv("data/authors.csv",
+authors <- read.csv("data/authors.csv",
            fileEncoding = "UTF-8-BOM",
            stringsAsFactors = FALSE)
 colnames(authors) <- c("year", "first", "full", "gender", "name")
@@ -26,7 +23,9 @@ shinyUI(fluidPage(
   
   # Nav bar, with nav bar title
   navbarPage(
-    "",
+
+    div(img("", src="Huskies.png",width = 40, height = 40)),
+
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
@@ -52,6 +51,12 @@ shinyUI(fluidPage(
                      dblclick = "presplot_dblclick",
                      brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE)
                    ),
+                   wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                               allow you to brush over an area. Information about the data points in the area 
+                               encompassed will be displayed on the right column below. doubling clicking with 
+                               an area encompassed will zoom in on that section of the plot. doubling clicking
+                               again (without an encompassed area) will revert the plot to its normal size.")),
                    fluidRow(
                      column(width = 5, verbatimTextOutput("presclick_info")),
                      column(width = 5, verbatimTextOutput("presbrush_info"))
@@ -67,12 +72,9 @@ shinyUI(fluidPage(
                      "This is a table of all the data
                      points listed under the user's selected name and profession"
                    ),
-                   dataTableOutput("president_table"),
-                   wellPanel(helpText(
-                     a("President source data",
-                       href = "http://www.worldbank.org/")
-                   ))
+                   dataTableOutput("president_table")
                    ),
+                   
                  
                  # Outputs "president_summary"
                  tabPanel(
@@ -80,7 +82,7 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "Shows a summary of the data selected (same as the data points
-                     displayed on the table table tab"),
+                     displayed on the table tab)"),
                  verbatimTextOutput("president_summary")
                  
                    )
@@ -94,7 +96,7 @@ shinyUI(fluidPage(
              sidebarPanel(
                # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
                # TODO: fix choosing, do we have repeated full names?
-               selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$full)
+               selectInput("singer_selection", "Choose a Musician:", choices = grammys$full)
              ),
              
              # Mucisian's data
@@ -112,6 +114,12 @@ shinyUI(fluidPage(
                    dblclick = "singerplot_dblclick",
                    brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
                  ),
+                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                             allow you to brush over an area. Information about the data points in the area 
+                             encompassed will be displayed on the right column below. doubling clicking with 
+                             an area encompassed will zoom in on that section of the plot. doubling clicking
+                             again (without an encompassed area) will revert the plot to its normal size.")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("singerclick_info")),
                    column(width = 5, verbatimTextOutput("singerbrush_info"))
@@ -130,7 +138,7 @@ shinyUI(fluidPage(
                  ),
                  dataTableOutput("singer_table"),
                  wellPanel(helpText(
-                   a("Mucisian source data",
+                   a("Musician source data",
                      href =
                        "http://www.worldbank.org/")
                  ))
@@ -156,7 +164,7 @@ shinyUI(fluidPage(
              sidebarPanel(
                # Allows the user to chose a author by first name, stores data in "author_selection"
                # TODO: fix choosing
-               selectInput("author_selection", "Choose a Author:", choices = authors$full)
+               selectInput("author_selection", "Choose an Author:", choices = authors$full)
              ),
              
              # Authors's data
@@ -174,6 +182,12 @@ shinyUI(fluidPage(
                    dblclick = "authplot_dblclick",
                    brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)
                  ),
+                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                             allow you to brush over an area. Information about the data points in the area 
+                             encompassed will be displayed on the right column below. doubling clicking with 
+                             an area encompassed will zoom in on that section of the plot. doubling clicking
+                             again (without an encompassed area) will revert the plot to its normal size.")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("authclick_info")),
                    column(width = 5, verbatimTextOutput("authbrush_info"))
@@ -186,8 +200,7 @@ shinyUI(fluidPage(
                tabPanel(
                  strong("Table"),
                  br(),
-                 p(
-                   "This is a table of all the data
+                 p("This is a table of all the data
                    points listed under the user's selected name and profession"
                  ),
                  
@@ -203,8 +216,7 @@ shinyUI(fluidPage(
                tabPanel(
                  strong("Summary"),
                  br(),
-                 p(
-                   "Shows a summary of the data selected (same as the data points
+                 p("Shows a summary of the data selected (same as the data points
                    displayed on the table table tab"),
                verbatimTextOutput("author_summary")
                
@@ -219,15 +231,36 @@ shinyUI(fluidPage(
            fluidRow(
              column(4,
                     h4("Presidents"),
-                    p("Presidents data.")
+                    p("Presidents data."),
+                    br(),
+                    p("Lyndon Johnson, Dwight D. Eisenhower, Franklin Roosevelt, Herbert Hoover, 
+                      Calvin Coolidge, Warren Harding, Woodrow Wilson, and Theodore Roosevelt were
+                      the only presidents that showed statistically significant gain, either on the
+                      year of inauguration, or shortly there after. Most presidents (10/18) in our data
+                      did not show any drastic change in name popularity around the time of their 
+                      election. We are not sure why there are spikes in name popularity for the names
+                      of certain presidents and not others, but we are pretty sure it doesn't have
+                      to do with their party affiliation, as 3 of the spikes were Democrat, and 5 of the spikes
+                      were Republican.")
              ),
              column(4,
                     h4("Singers"),
-                    p("Singers data.")
+                    p("Singers data."),
+                    br(),
+                    p("Christopher Cross, Sheena Easton, Mariah Carey, Lauryn Hill, and Norah Jones were
+                      the only artists (out of 32) that showed significant growth around the time of receiving
+                      the grammy award for 'best new artist'. This shows that popular artists do not have a 
+                      consistent impact (positive or negative) on the names that people choose for their children.")
              ),
              column(4,
                     h4("Authors"),
-                    p("Authors data.")
+                    p("Authors data."),
+                    br(),
+                    p("Thomas B. Costain, John Le Carre, Jacqueline Susann, Erich Segal, Stephen King, 
+                      and Alexandra Ripley were all experiencing gain in popularity for their first names,
+                      however, after receiving their award, their first names started to DECLINE in popularity.
+                      All of the other names (103 out of 109) showed no significant impact (i.e. change in direction
+                      for name popularity).") 
              )
            ),
            
@@ -271,6 +304,7 @@ shinyUI(fluidPage(
              
              # Authors' data
              mainPanel(
+
                p(
                  "We are a team of UW (Go Dawgs!) students trying to examine the
                  influence famous people have on people naming their children

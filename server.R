@@ -6,13 +6,10 @@ library(tidyr)
 library(shinythemes)
 
 # Load in the datasets
-baby_names <-
-  read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
-presidents <-
-  read.csv("data/presidents.csv", stringsAsFactors = FALSE)
+baby_names <- read.csv("data/baby-names.csv", stringsAsFactors = FALSE)
+presidents <- read.csv("data/presidents.csv", stringsAsFactors = FALSE)
 grammys <- read.csv("data/grammy.csv", stringsAsFactors = FALSE)
-authors <-
-  read.csv("data/authors.csv",
+authors <- read.csv("data/authors.csv",
            fileEncoding = "UTF-8-BOM",
            stringsAsFactors = FALSE)
 colnames(authors) <- c("year", "first", "full", "gender", "name")
@@ -148,7 +145,7 @@ shinyServer(function(input, output, session) {
   # prints information about plot click
   output$singerclick_info <- renderPrint({
     cat("input$singerplot_click:\n")
-    str(input$plot_click)
+    str(input$singerplot_click)
   })
   output$authbrush_info <- renderPrint({
     cat("input$authplot_brush:\n")
