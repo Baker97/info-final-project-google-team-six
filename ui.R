@@ -18,7 +18,7 @@ colnames(authors) <- c("year", "first", "full", "gender", "name")
 shinyUI(fluidPage(
   theme = shinytheme("flatly"),
   # Title of page
-  titlePanel("Baby names observation data"),
+  titlePanel("Comparing popular baby names vs. famous people"),
   br(),
   
   # Nav bar, with nav bar title
@@ -30,6 +30,19 @@ shinyUI(fluidPage(
     tabPanel("Home",
              sidebarLayout(
                sidebarPanel(
+                 strong(h3("Team Members")),
+                 img("", src="andrew.jpg", width = 100, height = 100),
+                 strong("Andrew Baker"),
+                 p("Email: adbaker2@uw.edu"),
+                 strong("Daniel Barnes"),
+                 p("Email: dbarnes2@uw.edu"),
+                 strong("Paul Vaden"),
+                 p("Email: pvaden@uw.edu"),
+                 img("", src="nerd1.png", width = 100, height = 150),
+                 strong("John Batts"),
+                 p("Email: battsj5@uw.edu")
+               ),
+               mainPanel(
                  p(strong("Welcome"),"to the Baby Names Observation Data!"),
                  br(),
                  p("We analyzed trends in baby names in relation to:",strong("Presidents, Singers, and Authors."),
@@ -42,8 +55,6 @@ shinyUI(fluidPage(
                  br(),
                  h1("Data set sources"),
                  a("Baby Names Source", href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv")
-               ),
-               mainPanel(
                )
              )),
     # President's page
@@ -90,7 +101,7 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "This is a table of all the data
-                     points listed under the user's selected name and profession"
+                     points listed under the user's selected name"
                    ),
                    dataTableOutput("president_table")
                    ),
@@ -154,7 +165,7 @@ shinyUI(fluidPage(
                  br(),
                  p(
                    "This is a table of all the data
-                   points listed under the user's selected name and profession"
+                   points listed under the user's selected name"
                  ),
                  dataTableOutput("singer_table"),
                  wellPanel(helpText(
@@ -221,7 +232,7 @@ shinyUI(fluidPage(
                  strong("Table"),
                  br(),
                  p("This is a table of all the data
-                   points listed under the user's selected name and profession"
+                   points listed under the user's selected name"
                  ),
                  
                  dataTableOutput("author_table"),
@@ -320,7 +331,6 @@ shinyUI(fluidPage(
                p("Email: pvaden@uw.edu"),
                img("", src="nerd1.png", width = 100, height = 150),
                strong("John Batts"),
-               
                p("Email: battsj5@uw.edu")
              ),
              
