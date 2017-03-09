@@ -159,7 +159,9 @@ shinyUI(fluidPage(
                              allow you to brush over an area. Information about the data points in the area 
                              encompassed will be displayed on the right column below. doubling clicking with 
                              an area encompassed will zoom in on that section of the plot. doubling clicking
-                             again (without an encompassed area) will revert the plot to its normal size.")),
+                             again (without an encompassed area) will revert the plot to its normal size.
+                             The line above indicate when the artist selected received a grammy for 'Best 
+                             New Artist.'")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("singerclick_info")),
                    column(width = 5, verbatimTextOutput("singerbrush_info"))
