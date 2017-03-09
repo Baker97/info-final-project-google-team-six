@@ -26,6 +26,15 @@ shinyUI(fluidPage(
 
     div(img("", src="Huskies.png",width = 40, height = 40)),
 
+    # Home page
+    tabPanel("Home",
+             sidebarLayout(
+               sidebarPanel(
+                 p(strong("test"),"hi")
+               ),
+               mainPanel(
+               )
+             )),
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
