@@ -26,7 +26,9 @@ shinyUI(fluidPage(
   
   # Nav bar, with nav bar title
   navbarPage(
+
     div(img("", src="Huskies.png",width = 40, height = 40)),
+
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
@@ -232,11 +234,26 @@ shinyUI(fluidPage(
            fluidRow(
              column(4,
                     h4("Presidents"),
-                    p("Presidents data.")
+                    p("Presidents data."),
+                    br(),
+                    p("Lyndon Johnson, Dwight D. Eisenhower, Franklin Roosevelt, Herbert Hoover, 
+                      Calvin Coolidge, Warren Harding, Woodrow Wilson, and Theodore Roosevelt were
+                      the only presidents that showed statistically significant gain, either on the
+                      year of inauguration, or shortly there after. Most presidents (10/18) in our data
+                      did not show any drastic change in name popularity around the time of their 
+                      election. We are not sure why there are spikes in name popularity for the names
+                      of certain presidents and not others, but we are pretty sure it doesn't have
+                      to do with their party affiliation, as 3 of the spikes were Democrat, and 5 of the spikes
+                      were Republican.")
              ),
              column(4,
                     h4("Singers"),
-                    p("Singers data.")
+                    p("Singers data."),
+                    br(),
+                    p("Christopher Cross, Sheena Easton, Mariah Carey, Lauryn Hill, and Norah Jones were
+                      the only artists (out of 32) that showed significant growth around the time of receiving
+                      the grammy award for 'best new artist'. This shows that popular artists do not have a 
+                      consistent impact (positive or negative) on the names that people choose for their children.")
              ),
              column(4,
                     h4("Authors"),
@@ -284,8 +301,10 @@ shinyUI(fluidPage(
              
              # Authors' data
              mainPanel(
-               p("We are a team of UW (Go Dawgs!) students trying to examine the
-                 influence of famous people on people naming their children
+
+               p(
+                 "We are a team of UW (Go Dawgs!) students trying to examine the
+                 influence famous people have on people naming their children
                  after them. The data set that we are working with contains
                  popular baby names from 1880 - 2008 and the names of famous people.
                  It contains each name, sex, the percentage of people who were named
