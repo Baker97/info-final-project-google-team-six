@@ -284,17 +284,17 @@ shinyUI(fluidPage(
                significant impact upon baby naming trends. We tried to choose the \"biggest\" names in each 
                area, but what's \"hot\" or \"big\" can be subjective. With politics, it's easier 
                because presidential elections have the highest voter turnout compared to any other 
-               election in government and includes the whole country, so this we choose to compare 
-               baby names againest presidents and when they were elected (it's also noted that presidents
-               are most popular within their first 100 days). In pop culture, We tried looking for trends in
+               election in government and includes the whole country, so for this project we chose to compare 
+               baby names against presidents and when they were elected (it's also noted that presidents
+               are most popular within their first 100 days). In pop culture, we tried looking for trends in
                baby names from when new artists won a grammy for \"Best New Artist\". This area is 
                harder to pinpoint when there are many popular music artists that people love. In our graphs, there
                many not be many significant correlations in this area because we simply didn't include the music
                artists that have the correlation with people naming their children after them. There may be a much 
-               larger influence of singers on people then the data may suggest because of this. In comparing againest 
+               larger influence of singers on people than the data may suggest because of this. In comparing against 
                authors' influence on people, we chose to select authors who have made the Publishers Weekly lists 
                of bestselling novels in the United States. We chose to use this as a marker for our graph on authors because
-               more sales is linked to popularity.")
+               more sales are linked to popularity.")
            ),
            
            # Introduces each table
@@ -339,9 +339,9 @@ shinyUI(fluidPage(
              p("Over the course of this project, as we performed more calculations and statistical analysis, we began to notice that
                we might have over-estimated how much influence one person can have over all of America's baby names. In 2009, there were
                4.13 million children born in the United States- even if some parents were to name their children based off of important figures
-               of the day, this number of parents would be too small compared to the sheer amount of parents who name their children conventionally,
-               for other reasons. For presidents, we noticed a large short-term influence, but this quickly faded, showing that it did not change
-               cultural trends. Overall, we were unable to prove our hypothesis that important cultural figures impact our baby naming convention.")
+               of the day, this number of parents would be too small compared to the sheer amount of parents who name their children conventionally.
+               For presidents, we noticed a large short-term influence, but this quickly faded, showing that it did not change
+               long-term cultural trends. Overall, we were unable to prove our hypothesis that important cultural figures impact our baby naming convention.")
              
              ),
            
