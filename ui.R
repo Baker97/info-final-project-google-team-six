@@ -26,8 +26,7 @@ shinyUI(fluidPage(
   
   # Nav bar, with nav bar title
   navbarPage(
-    "NavBar",
-    
+    div(img("", src="Huskies.png",width = 40, height = 40)),
     # President's page
     tabPanel("Presidents",
              sidebarLayout(
@@ -53,6 +52,12 @@ shinyUI(fluidPage(
                      dblclick = "presplot_dblclick",
                      brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE)
                    ),
+                   wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                               allow you to brush over an area. Information about the data points in the area 
+                               encompassed will be displayed on the right column below. doubling clicking with 
+                               an area encompassed will zoom in on that section of the plot. doubling clicking
+                               again (without an encompassed area) will revert the plot to its normal size.")),
                    fluidRow(
                      column(width = 5, verbatimTextOutput("presclick_info")),
                      column(width = 5, verbatimTextOutput("presbrush_info"))
@@ -68,12 +73,9 @@ shinyUI(fluidPage(
                      "This is a table of all the data
                      points listed under the user's selected name and profession"
                    ),
-                   dataTableOutput("president_table"),
-                   wellPanel(helpText(
-                     a("President source data",
-                       href = "http://www.worldbank.org/")
-                   ))
+                   dataTableOutput("president_table")
                    ),
+                   
                  
                  # Outputs "president_summary"
                  tabPanel(
@@ -81,7 +83,7 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "Shows a summary of the data selected (same as the data points
-                     displayed on the table table tab"),
+                     displayed on the table tab)"),
                  verbatimTextOutput("president_summary")
                  
                    )
@@ -95,7 +97,7 @@ shinyUI(fluidPage(
              sidebarPanel(
                # Allows the user to chose a mucisian by first name, stores data in "mucisian_selection"
                # TODO: fix choosing, do we have repeated full names?
-               selectInput("singer_selection", "Choose a Mucisian:", choices = grammys$full)
+               selectInput("singer_selection", "Choose a Musician:", choices = grammys$full)
              ),
              
              # Mucisian's data
@@ -113,6 +115,12 @@ shinyUI(fluidPage(
                    dblclick = "singerplot_dblclick",
                    brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
                  ),
+                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                             allow you to brush over an area. Information about the data points in the area 
+                             encompassed will be displayed on the right column below. doubling clicking with 
+                             an area encompassed will zoom in on that section of the plot. doubling clicking
+                             again (without an encompassed area) will revert the plot to its normal size.")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("singerclick_info")),
                    column(width = 5, verbatimTextOutput("singerbrush_info"))
@@ -131,7 +139,7 @@ shinyUI(fluidPage(
                  ),
                  dataTableOutput("singer_table"),
                  wellPanel(helpText(
-                   a("Mucisian source data",
+                   a("Musician source data",
                      href =
                        "http://www.worldbank.org/")
                  ))
@@ -157,7 +165,7 @@ shinyUI(fluidPage(
              sidebarPanel(
                # Allows the user to chose a author by first name, stores data in "author_selection"
                # TODO: fix choosing
-               selectInput("author_selection", "Choose a Author:", choices = authors$full)
+               selectInput("author_selection", "Choose an Author:", choices = authors$full)
              ),
              
              # Authors's data
@@ -175,6 +183,12 @@ shinyUI(fluidPage(
                    dblclick = "authplot_dblclick",
                    brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)
                  ),
+                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                               on the left column below. Holding the left click and moving your cursor will 
+                             allow you to brush over an area. Information about the data points in the area 
+                             encompassed will be displayed on the right column below. doubling clicking with 
+                             an area encompassed will zoom in on that section of the plot. doubling clicking
+                             again (without an encompassed area) will revert the plot to its normal size.")),
                  fluidRow(
                    column(width = 5, verbatimTextOutput("authclick_info")),
                    column(width = 5, verbatimTextOutput("authbrush_info"))
@@ -187,8 +201,7 @@ shinyUI(fluidPage(
                tabPanel(
                  strong("Table"),
                  br(),
-                 p(
-                   "This is a table of all the data
+                 p("This is a table of all the data
                    points listed under the user's selected name and profession"
                  ),
                  
@@ -204,8 +217,7 @@ shinyUI(fluidPage(
                tabPanel(
                  strong("Summary"),
                  br(),
-                 p(
-                   "Shows a summary of the data selected (same as the data points
+                 p("Shows a summary of the data selected (same as the data points
                    displayed on the table table tab"),
                verbatimTextOutput("author_summary")
                
@@ -272,8 +284,7 @@ shinyUI(fluidPage(
              
              # Authors' data
              mainPanel(
-               p(
-                 "We are a team of UW (Go Dawgs!) students trying to examine the
+               p("We are a team of UW (Go Dawgs!) students trying to examine the
                  influence of famous people on people naming their children
                  after them. The data set that we are working with contains
                  popular baby names from 1880 - 2008 and the names of famous people.
