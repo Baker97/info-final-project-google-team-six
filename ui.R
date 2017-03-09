@@ -102,7 +102,7 @@ shinyUI(fluidPage(
                      brush = brushOpts(id = "presplot_brush", resetOnNew = TRUE)
                    ),
                    
-                   wellPanel(p("Clicking once on the graph will display information about where you clicked
+                   wellPanel(p("The vertical line is when the president was first elected.  Clicking once on the graph will display information about where you clicked
                                on the left column below. Holding the left click and moving your cursor will 
                                allow you to brush over an area. Information about the data points in the area 
                                encompassed will be displayed on the right column below. doubling clicking with 
@@ -167,7 +167,7 @@ shinyUI(fluidPage(
                    brush = brushOpts(id = "singerplot_brush", resetOnNew = TRUE)
                  ),
                  
-                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                 wellPanel(p("The vertical line is when the singer won a grammy.  Clicking once on the graph will display information about where you clicked
                                on the left column below. Holding the left click and moving your cursor will 
                              allow you to brush over an area. Information about the data points in the area 
                              encompassed will be displayed on the right column below. doubling clicking with 
@@ -237,7 +237,7 @@ shinyUI(fluidPage(
                    dblclick = "authplot_dblclick",
                    brush = brushOpts(id = "authplot_brush", resetOnNew = TRUE)
                  ),
-                 wellPanel(p("Clicking once on the graph will display information about where you clicked
+                 wellPanel(p("The vertical line is when the author won the Publisher Weekly best novel award.  Clicking once on the graph will display information about where you clicked
                                on the left column below. Holding the left click and moving your cursor will 
                              allow you to brush over an area. Information about the data points in the area 
                              encompassed will be displayed on the right column below. doubling clicking with 
