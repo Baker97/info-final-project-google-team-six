@@ -192,18 +192,25 @@ shinyServer(function(input, output, session) {
   
   # President Influence Table outputted to "president_influence"
   output$president_influence <- renderDataTable({
-    return(GetInfluenceForDataSet(presidents))
+    president_influence_data <- GetInfluenceForDataSet(presidents)
+    colnames(president_influence_data) <- c("Name", "Year", "Influence (percent change caused * 1000)")
+    return(president_influence_data)
   })
   
   # Singer Influence Table outputted to "singer_influence"
   output$singer_influence <- renderDataTable({
-    return(GetInfluenceForDataSet(grammys))
+    singer_influence_data <- GetInfluenceForDataSet(grammys)
+    colnames(singer_influence_data) <- c("Name", "Year", "Influence (percent change caused * 1000)")
+    return(singer_influence_data)
   })
   
   # Author Influence Table outputted to "author_influence"
   output$author_influence <- renderDataTable({
-    return(GetInfluenceForDataSet(authors))
+    author_influence_data <- GetInfluenceForDataSet(authors)
+    colnames(author_influence_data) <- c("Name", "Year", "Influence (percent change caused * 1000)")
+    return(author_influence_data)
   })
+  
   
   # Summary Statistic Calculation
   
@@ -268,4 +275,21 @@ shinyServer(function(input, output, session) {
     return(viewable_results)
   }
   
+  
+  # Statistical Summaries
+  
+  # Outputs a summary for presidents to "president_summary", based upon the influence graphs
+  output$president_summary <- renderText({
+    
+  })
+  
+  # Outputs a summary for singer to "singer_summary", based upon the influence graphs
+  output$singer_summary <- renderText({
+    
+  })
+  
+  # Outputs a summary for authors to "author_summary", based upon the influence graphs
+  output$author_summary <- renderText({
+    
+  })
 })

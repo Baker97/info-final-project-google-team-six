@@ -278,12 +278,20 @@ shinyUI(fluidPage(
   # Data summary
   tabPanel("Summary",
            
+           # Introduces how we came to the insights we made
+           fluidRow(
+             h1("Summary of Collected Data", align = "center"),
+             p("[!!!***!!!Introduce the project: give more detail about how we came to choose these specific
+               data sets to compare against (looking to see what influences American culture most: academia,
+               pop culture, or politics, etc.)!!!***!!!]")
+           ),
+           
            # Introduces each table
            fluidRow(
              column(4,
-                    h4("Presidents"),
-                    p("Presidents data."),
+                    h2("Presidents"),
                     br(),
+                    h4(strong("Visual Observations (from graphs):")),
                     p("Lyndon Johnson, Dwight D. Eisenhower, Franklin Roosevelt, Herbert Hoover, 
                       Calvin Coolidge, Warren Harding, Woodrow Wilson, and Theodore Roosevelt were
                       the only presidents that showed statistically significant gain, either on the
@@ -295,25 +303,60 @@ shinyUI(fluidPage(
                       were Republican.")
              ),
              column(4,
-                    h4("Singers"),
-                    p("Singers data."),
+                    h2("Singers"),
                     br(),
+                    h4(strong("Visual Observations (from graphs):")),
                     p("Christopher Cross, Sheena Easton, Mariah Carey, Lauryn Hill, and Norah Jones were
                       the only artists (out of 32) that showed significant growth around the time of receiving
                       the grammy award for 'best new artist'. This shows that popular artists do not have a 
                       consistent impact (positive or negative) on the names that people choose for their children.")
              ),
              column(4,
-                    h4("Authors"),
-                    p("Authors data."),
+                    h2("Authors"),
                     br(),
+                    h4(strong("Visual Observations (from graphs):")),
                     p("Thomas B. Costain, John Le Carre, Jacqueline Susann, Erich Segal, Stephen King, 
                       and Alexandra Ripley were all experiencing gain in popularity for their first names,
                       however, after receiving their award, their first names started to DECLINE in popularity.
                       All of the other names (103 out of 109) showed no significant impact (i.e. change in direction
-                      for name popularity).") 
+                      for name popularity).")
              )
            ),
+           
+           # Explanation for Influence Graphs
+           fluidRow(
+             h2("About the following graphs", align = "center"),
+             p("The influence graphs were created for the presidents, singers, and authors data sets. The process for finding
+               the influence of each name is as follows: First, we distilled the first name and gender from each person, and used
+               this to search our data set of baby name popularity to find what percentage of babies possessed their name 5 years 
+               before and after the year we found them to be influential. Next, we found the linear regression of both of these year
+               sets, to find how the name was trending before and after their influence. Then, we compared these two numbers, subtracting
+               the linear regression before from the linear regression after: isolating the impact the person had. This gives us a percent
+               change in babies getting named with the same first name as our influential person, that we attribute to that person's
+               influence."),
+             strong(" In order to make this data more readable, these percent influence numbers were multiplied by 1000. For instance,
+                    a person with an influence number of 0.3 is associated with a +0.0003% difference in the popularity of their first
+                    name used naming babies.")
+           ),
+           
+           # Statistical observations for each
+           fluidRow(
+             column(4,
+                    hr(),
+                    h4(strong("Statistical Observations (from tables below):")),
+                    textOutput("president_observations")
+                    ),
+             column(4,
+                    hr(),
+                    h4(strong("Statistical Observations (from tables below):")),
+                    textOutput("singer_observations")
+                    ),
+             column(4,
+                    hr(),
+                    h4(strong("Statistical Observations (from tables below):")),
+                    textOutput("author_observations")
+                    )
+             ),
            
            # Displays each table, in separate columns
            fluidRow(
