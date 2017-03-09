@@ -41,24 +41,23 @@ shinyUI(fluidPage(
                  p("Email: battsj5@uw.edu")
                ),
                mainPanel(
-                 p(strong("Welcome"),"to the Baby Names Observation Data!"),
+                 h1(strong("Welcome"),"to the Baby Names Observation Data!"),
+                 h2("Who we are"),
+                 p(
+                   "We are a team of UW (Go Dawgs!) students trying to examine the
+                   influence famous people have on people naming their children
+                   after them. The data set that we are working with contains
+                   popular baby names from 1880 - 2008 and the names of famous people.
+                   It contains each name, sex, the percentage of people who were named
+                   that particular name in that year, and the year. The famous people
+                   data sets will have the year and the famous person of that category
+                   for that year(either an author, musician, or president)."),
                  br(),
                  p("We analyzed trends in baby names in relation to:",strong("Presidents, Singers, and Authors."),
                    "Please feel free to browse through the information we have compiled for you. You may select
                    any tab to view it, and inside each data tab, there is an interactive graph. You will find our personal
-                   observations inside of the", strong("Summary"), "tab as well as some information about us in the", 
-                   strong("About"), "tab."),
+                   observations inside of the", strong("Summary"), "tab."),
                  br(),
-                 h2("Who we are"),
-                 p(
-                   "We are a team of UW (Go Dawgs!) students trying to examine the
-                 influence famous people have on people naming their children
-                 after them. The data set that we are working with contains
-                 popular baby names from 1880 - 2008 and the names of famous people.
-                 It contains each name, sex, the percentage of people who were named
-                 that particular name in that year, and the year. The famous people
-                 data sets will have the year and the famous person of that category
-                 for that year(either an author, musician, or president)."),
                  p(strong("Happy Browsing!")),
                  br(),
                  wellPanel(h1("Data set sources"),
