@@ -55,13 +55,21 @@ shinyUI(fluidPage(
                  br(),
                  p("We analyzed trends in baby names in relation to:",strong("Presidents, Singers, and Authors."),
                    "Please feel free to browse through the information we have compiled for you. You may select
-                   any tab to view it, and inside each data tab, there is an interactive graph. You will find our personal
-                   observations inside of the", strong("Summary"), "tab."),
+                   any tab to view it, and inside each data tab, there is an interactive graph. Check out the ",
+                   strong("Summary"), "tab for some cool", strong("insights!")),
                  br(),
                  p(strong("Happy Browsing!")),
                  br(),
                  wellPanel(h1("Data set sources"),
-                 a("Baby Names Source", href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv"))
+                 a("Baby Names Source", 
+                   href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv"),
+                 br(),
+                 a("Singers Source",
+                   href="https://en.wikipedia.org/wiki/Grammy_Award_for_Best_New_Artist"),
+                 br(),
+                 a("Authors Source",
+                   href="https://en.wikipedia.org/wiki/Publishers_Weekly_lists_of_bestselling_novels_in_the_United_States")
+                 )
                )
              )),
     # President's page
