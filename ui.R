@@ -233,7 +233,12 @@ shinyUI(fluidPage(
              ),
              column(4,
                     h4("Singers"),
-                    p("Singers data.")
+                    p("Singers data."),
+                    br(),
+                    p("Christopher Cross, Sheena Easton, Mariah Carey, Lauryn Hill, and Norah Jones were
+                      the only artists (out of 32) that showed significant growth around the time of receiving
+                      the grammy award for 'best new artist'. This shows that popular artists do not have a 
+                      consistent impact (positive or negative) on the names that people choose for their children.")
              ),
              column(4,
                     h4("Authors"),
