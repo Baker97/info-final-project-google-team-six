@@ -76,7 +76,8 @@ shinyServer(function(input, output, session) {
       ggplot((data = singer_filtered()), mapping = aes(x = year, y = percent)) +
       geom_point() +
       geom_vline(xintercept = values$year) +
-      coord_cartesian(xlim = ranges2$x, ylim = ranges2$y)
+      coord_cartesian(xlim = ranges2$x, ylim = ranges2$y) +
+      labs(title = paste("Displaying data for", input$singer_selection) )
     return(q)
   })
   
