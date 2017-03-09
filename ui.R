@@ -38,7 +38,10 @@ shinyUI(fluidPage(
                    observations inside of the", strong("Summary"), "tab as well as some information about us in the", 
                    strong("About"), "tab."),
                  br(),
-                 p(strong("Happy Browsing!"))
+                 p(strong("Happy Browsing!")),
+                 br(),
+                 h1("Data set sources"),
+                 a("Baby Names Source", href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv")
                ),
                mainPanel(
                )
