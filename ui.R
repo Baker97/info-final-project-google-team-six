@@ -18,7 +18,7 @@ colnames(authors) <- c("year", "first", "full", "gender", "name")
 shinyUI(fluidPage(
   theme = shinytheme("flatly"),
   # Title of page
-  titlePanel("Baby names observation data"),
+  titlePanel("Comparing popular baby names vs. famous people"),
   br(),
   
   # Nav bar, with nav bar title
@@ -30,6 +30,17 @@ shinyUI(fluidPage(
     tabPanel("Home",
              sidebarLayout(
                sidebarPanel(
+                 strong(h2("Team Members")),
+                 strong("Andrew Baker"),
+                 p("Email: adbaker2@uw.edu"),
+                 strong("Daniel Barnes"),
+                 p("Email: dbarnes2@uw.edu"),
+                 strong("Paul Vaden"),
+                 p("Email: pvaden@uw.edu"),
+                 strong("John Batts"),
+                 p("Email: battsj5@uw.edu")
+               ),
+               mainPanel(
                  p(strong("Welcome"),"to the Baby Names Observation Data!"),
                  br(),
                  p("We analyzed trends in baby names in relation to:",strong("Presidents, Singers, and Authors."),
@@ -38,9 +49,20 @@ shinyUI(fluidPage(
                    observations inside of the", strong("Summary"), "tab as well as some information about us in the", 
                    strong("About"), "tab."),
                  br(),
-                 p(strong("Happy Browsing!"))
-               ),
-               mainPanel(
+                 h2("Who we are"),
+                 p(
+                   "We are a team of UW (Go Dawgs!) students trying to examine the
+                 influence famous people have on people naming their children
+                 after them. The data set that we are working with contains
+                 popular baby names from 1880 - 2008 and the names of famous people.
+                 It contains each name, sex, the percentage of people who were named
+                 that particular name in that year, and the year. The famous people
+                 data sets will have the year and the famous person of that category
+                 for that year(either an author, musician, or president)."),
+                 p(strong("Happy Browsing!")),
+                 br(),
+                 wellPanel(h1("Data set sources"),
+                 a("Baby Names Source", href="https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv"))
                )
              )),
     # President's page
@@ -87,7 +109,7 @@ shinyUI(fluidPage(
                    br(),
                    p(
                      "This is a table of all the data
-                     points listed under the user's selected name and profession"
+                     points listed under the user's selected name"
                    ),
                    dataTableOutput("president_table")
                    ),
@@ -151,7 +173,7 @@ shinyUI(fluidPage(
                  br(),
                  p(
                    "This is a table of all the data
-                   points listed under the user's selected name and profession"
+                   points listed under the user's selected name"
                  ),
                  dataTableOutput("singer_table"),
                  wellPanel(helpText(
@@ -218,7 +240,7 @@ shinyUI(fluidPage(
                  strong("Table"),
                  br(),
                  p("This is a table of all the data
-                   points listed under the user's selected name and profession"
+                   points listed under the user's selected name"
                  ),
                  
                  dataTableOutput("author_table"),
@@ -301,41 +323,6 @@ shinyUI(fluidPage(
                     # Outputs "author_influence"
                     dataTableOutput("author_influence")
              )
-           )),
+       )))))
   
-  tabPanel("About", br(),
-           sidebarLayout(
-             # Authors' user controls
-             sidebarPanel(
-               strong(h3("Team Members")),
-               img("", src="andrew.jpg", width = 100, height = 100),
-               strong("Andrew Baker"),
-               p("Email: adbaker2@uw.edu"),
-               strong("Daniel Barnes"),
-               p("Email: dbarnes2@uw.edu"),
-               strong("Paul Vaden"),
-               p("Email: pvaden@uw.edu"),
-               img("", src="nerd1.png", width = 100, height = 150),
-               strong("John Batts"),
-               
-               p("Email: battsj5@uw.edu")
-             ),
-             
-             
-             # Authors' data
-             mainPanel(
 
-               p(
-                 "We are a team of UW (Go Dawgs!) students trying to examine the
-                 influence famous people have on people naming their children
-                 after them. The data set that we are working with contains
-                 popular baby names from 1880 - 2008 and the names of famous people.
-                 It contains each name, sex, the percentage of people who were named
-                 that particular name in that year, and the year. The famous people
-                 data sets will have the year and the famous person of that category
-                 for that year(either an author, musician, or president)."
-               )
-              )
-          ))
-        )
-    ))
