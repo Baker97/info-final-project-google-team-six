@@ -73,7 +73,8 @@ shinyUI(fluidPage(
                                allow you to brush over an area. Information about the data points in the area 
                                encompassed will be displayed on the right column below. doubling clicking with 
                                an area encompassed will zoom in on that section of the plot. doubling clicking
-                               again (without an encompassed area) will revert the plot to its normal size.")),
+                               again (without an encompassed area) will revert the plot to its normal size.
+                               The line above indicates the year that the selected president was inaugurated.")),
                    fluidRow(
                      column(width = 5, verbatimTextOutput("presclick_info")),
                      column(width = 5, verbatimTextOutput("presbrush_info"))
