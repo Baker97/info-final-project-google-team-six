@@ -281,9 +281,21 @@ shinyUI(fluidPage(
            # Introduces how we came to the insights we made
            fluidRow(
              h1("Summary of Collected Data", align = "center"),
-             p("[!!!***!!!Introduce the project: give more detail about how we came to choose these specific
-               data sets to compare against (looking to see what influences American culture most: academia,
-               pop culture, or politics, etc.)!!!***!!!]")
+             p("Our project's goal is to see what influences American culture the most: academia,
+               pop culture, or politics, etc. We tried to choose the \"biggest\" names in each 
+               area, but what's \"hot\" or \"big\" can be subjective. With politics, it's easier 
+               because presidential elections have the highest voter turnout compared to any other 
+               election in government and includes the whole country, so this we choose to compare 
+               baby names againest presidents and when they were elected (it's also noted that presidents
+               are most popular within their first 100 days). In pop culture, We tried looking for trends in
+               baby names from when new artists won a grammy for \"Best New Artist\". This area is 
+               harder to pinpoint when there are many popular music artists that people love. In our graphs, there
+               many not be many significant correlations in this area because we simply didn't include the music
+               artists that have the correlation with people naming their children after them. There may be a much 
+               larger influence of singers on people then the data may suggest because of this. In comparing againest 
+               authors' influence on people, we chose to select authors who have made the Publishers Weekly lists 
+               of bestselling novels in the United States. We chose to use this as a marker for our graph on authors because
+               more sales is linked to popularity.")
            ),
            
            # Introduces each table
